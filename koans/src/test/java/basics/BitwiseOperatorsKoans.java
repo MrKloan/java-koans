@@ -5,6 +5,7 @@ import io.fries.koans.Koan;
 import static io.fries.koans.KoanAssert.__;
 import static io.fries.koans.KoanAssert.assertThat;
 
+@SuppressWarnings("all")
 class BitwiseOperatorsKoans {
 
     @Koan

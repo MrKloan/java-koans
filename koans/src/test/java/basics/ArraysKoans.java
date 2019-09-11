@@ -7,6 +7,7 @@ import java.util.Arrays;
 import static io.fries.koans.KoanAssert.__;
 import static io.fries.koans.KoanAssert.assertThat;
 
+@SuppressWarnings("all")
 class ArraysKoans {
 
     @Koan
