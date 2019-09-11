@@ -1,4 +1,4 @@
-package beginner;
+package basics;
 
 import io.fries.koans.Koan;
 
