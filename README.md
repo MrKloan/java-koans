@@ -10,7 +10,6 @@ Credits goes to:
 
 ## Backlog
 
-* Autoboxing / Unboxing
 * Inner classes
 * static / final keyword
 * var keyword

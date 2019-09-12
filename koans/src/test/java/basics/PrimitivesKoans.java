@@ -1,22 +1,25 @@
 package basics;
 
 import io.fries.koans.Koan;
+import org.junit.jupiter.api.Test;
 
 import static io.fries.koans.KoanAssert.__;
 import static io.fries.koans.KoanAssert.assertThat;
-import static io.fries.koans.basics.Primitives.getType;
+import static io.fries.koans.basics.Primitives.typeOf;
+import static org.assertj.core.api.Assertions.fail;
 
+@SuppressWarnings("all")
 class PrimitivesKoans {
 
     @Koan
     void whole_numbers_are_of_type_int() {
-        assertThat(getType(1)).isEqualTo(__);
+        assertThat(typeOf(1)).isEqualTo(__);
     }
 
     @Koan
     void primitives_of_type_int_have_an_object_type_integer() {
         Object number = 1;
-        assertThat(getType(number)).isEqualTo(__);
+        assertThat(typeOf(number)).isEqualTo(__);
     }
 
     @Koan
@@ -32,13 +35,13 @@ class PrimitivesKoans {
 
     @Koan
     void whole_numbers_can_also_be_of_type_long() {
-        assertThat(getType(1L)).isEqualTo(__);
+        assertThat(typeOf(1L)).isEqualTo(__);
     }
 
     @Koan
     void primitives_of_type_long_have_an_object_type_long() {
         Object number = 1L;
-        assertThat(getType(number)).isEqualTo(__);
+        assertThat(typeOf(number)).isEqualTo(__);
     }
 
     @Koan
@@ -54,13 +57,13 @@ class PrimitivesKoans {
 
     @Koan
     void whole_numbers_can_also_be_of_type_short() {
-        assertThat(getType((short) 1)).isEqualTo(__);
+        assertThat(typeOf((short) 1)).isEqualTo(__);
     }
 
     @Koan
     void primitives_of_type_short_have_an_object_type_short() {
         Object number = (short) 1;
-        assertThat(getType(number)).isEqualTo(__);
+        assertThat(typeOf(number)).isEqualTo(__);
     }
 
     @Koan
@@ -76,13 +79,13 @@ class PrimitivesKoans {
 
     @Koan
     void whole_numbers_can_also_be_of_type_byte() {
-        assertThat(getType((byte) 1)).isEqualTo(__);
+        assertThat(typeOf((byte) 1)).isEqualTo(__);
     }
 
     @Koan
     void primitives_of_type_byte_have_an_object_type_byte() {
         Object number = (byte) 1;
-        assertThat(getType(number)).isEqualTo(__);
+        assertThat(typeOf(number)).isEqualTo(__);
     }
 
     @Koan
@@ -98,18 +101,18 @@ class PrimitivesKoans {
 
     @Koan
     void whole_numbers_can_also_be_of_type_char() {
-        assertThat(getType((char) 1)).isEqualTo(__);
+        assertThat(typeOf((char) 1)).isEqualTo(__);
     }
 
     @Koan
     void single_characters_are_of_type_char() {
-        assertThat(getType('a')).isEqualTo(__);
+        assertThat(typeOf('a')).isEqualTo(__);
     }
 
     @Koan
     void primitives_of_type_char_have_an_object_type_character() {
         Object number = (char) 1;
-        assertThat(getType(number)).isEqualTo(__);
+        assertThat(typeOf(number)).isEqualTo(__);
     }
 
     @Koan
@@ -125,17 +128,17 @@ class PrimitivesKoans {
 
     @Koan
     void decimal_numbers_are_of_type_double() {
-        assertThat(getType(1.0)).isEqualTo(__);
+        assertThat(typeOf(1.0)).isEqualTo(__);
     }
 
     @Koan
     void primitives_of_type_double_can_be_declared_without_the_decimal_point() {
-        assertThat(getType(1d)).isEqualTo(__);
+        assertThat(typeOf(1d)).isEqualTo(__);
     }
 
     @Koan
     void primitives_of_type_double_can_be_declared_with_exponents() {
-        assertThat(getType(1e3)).isEqualTo(__);
+        assertThat(typeOf(1e3)).isEqualTo(__);
         assertThat(1.0e3).isEqualTo(__);
         assertThat(1E3).isEqualTo(__);
     }
@@ -143,7 +146,7 @@ class PrimitivesKoans {
     @Koan
     void primitives_of_type_double_have_an_object_type_double() {
         Object number = 1.0;
-        assertThat(getType(number)).isEqualTo(__);
+        assertThat(typeOf(number)).isEqualTo(__);
     }
 
     @Koan
@@ -159,12 +162,12 @@ class PrimitivesKoans {
 
     @Koan
     void decimal_numbers_can_also_be_of_type_float() {
-        assertThat(getType(1f)).isEqualTo(__);
+        assertThat(typeOf(1f)).isEqualTo(__);
     }
 
     @Koan
     void primitives_of_type_float_can_be_declared_with_exponents() {
-        assertThat(getType(1e3f)).isEqualTo(__);
+        assertThat(typeOf(1e3f)).isEqualTo(__);
         assertThat(1.0e3f).isEqualTo(__);
         assertThat(1E3f).isEqualTo(__);
     }
@@ -172,7 +175,7 @@ class PrimitivesKoans {
     @Koan
     void primitives_of_type_float_have_an_object_type_float() {
         Object number = 1f;
-        assertThat(getType(number)).isEqualTo(__);
+        assertThat(typeOf(number)).isEqualTo(__);
     }
 
     @Koan
@@ -184,5 +187,46 @@ class PrimitivesKoans {
     @Koan
     void float_size() {
         assertThat(Float.SIZE).isEqualTo(__);
+    }
+
+    @Koan
+    void autoboxing_of_an_int_into_an_integer() {
+        Integer i = 3;
+        assertThat(i).isEqualTo(__);
+    }
+
+    @Koan
+    void unboxing_of_an_integer_to_an_int() {
+        int i = Integer.valueOf(5);
+        assertThat(i).isEqualTo(5);
+    }
+
+    @Test
+    void autoboxing_and_unboxing_are_applied_to_every_primitive_type() {
+        char unboxedChar = Character.valueOf('a');
+        Character autoboxedChar = 'a';
+        assertThat(unboxedChar).isEqualTo(autoboxedChar);
+
+        byte unboxedByte = Byte.valueOf((byte) 1);
+        Byte autoboxedByte = (byte) 1;
+        assertThat(unboxedByte).isEqualTo(autoboxedByte);
+
+        short unboxedShort = Short.valueOf((short) 1);
+        Short autoboxedShort = (short) 1;
+        assertThat(unboxedShort).isEqualTo(autoboxedShort);
+
+        long unboxedLong = Long.valueOf(1L);
+        Long autoboxedLong = 1L;
+        assertThat(unboxedLong).isEqualTo(autoboxedLong);
+
+        float unboxedFloat = Float.valueOf(1.F);
+        Float autoboxedFloat = 1.F;
+        assertThat(unboxedFloat).isEqualTo(autoboxedFloat);
+
+        double unboxedDouble = Double.valueOf(1.);
+        Double autoboxedDouble = 1.;
+        assertThat(unboxedDouble).isEqualTo(autoboxedDouble);
+
+        fail("Remove this filthy line when you've mastered the concepts of autoboxing and unboxing.");
     }
 }
