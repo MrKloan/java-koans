@@ -37,6 +37,28 @@ class CastingKoans {
         assertThat(c).isEqualTo(__);
     }
 
+    interface Sleepable {
+        String sleep();
+    }
+
+    class Grandparent implements Sleepable {
+        public String sleep() {
+            return "zzzz";
+        }
+    }
+
+    class Parent extends Grandparent {
+        public String complain() {
+            return "TPS reports don't even have a cover letter!";
+        }
+    }
+
+    class Child extends Parent {
+        public String complain() {
+            return "Are we there yet!";
+        }
+    }
+
     @Koan
     void upcast_with_inheritance() {
         Child child = new Child();
@@ -90,27 +112,5 @@ class CastingKoans {
         Grandparent parent = new Parent();
 
         assertThat("TPS reports don't even have a cover letter!").isEqualTo(__);
-    }
-
-    interface Sleepable {
-        String sleep();
-    }
-
-    class Grandparent implements Sleepable {
-        public String sleep() {
-            return "zzzz";
-        }
-    }
-
-    class Parent extends Grandparent {
-        public String complain() {
-            return "TPS reports don't even have a cover letter!";
-        }
-    }
-
-    class Child extends Parent {
-        public String complain() {
-            return "Are we there yet!";
-        }
     }
 }

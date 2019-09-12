@@ -2,37 +2,43 @@ package basics;
 
 import io.fries.koans.Koan;
 
-import static com.sandwich.koan.constant.KoanConstants.__;
-import static com.sandwich.util.Assert.assertThat;
+import static io.fries.koans.KoanAssert.__;
+import static io.fries.koans.KoanAssert.assertThat;
 
-public class KoansConditionals {
+@SuppressWarnings("all")
+class ConditionalsKoans {
 
     @Koan
-    void basicIf() {
+    void basic_if() {
         int x = 1;
+
         if (true) {
             x++;
         }
+
         assertThat(x).isEqualTo(__);
     }
 
     @Koan
-    void basicIfElse() {
+    void basic_if_else() {
         int x = 1;
         boolean secretBoolean = false;
+
         if (secretBoolean) {
             x++;
         } else {
             x--;
         }
+
         assertThat(x).isEqualTo(__);
     }
 
     @Koan
-    void basicIfElseIfElse() {
+    void basic_if_else_if_else() {
         int x = 1;
         boolean secretBoolean = false;
         boolean otherBooleanCondition = true;
+
         if (secretBoolean) {
             x++;
         } else if (otherBooleanCondition) {
@@ -40,32 +46,32 @@ public class KoansConditionals {
         } else {
             x--;
         }
+
         assertThat(x).isEqualTo(__);
     }
 
     @Koan
-    void nestedIfsWithoutCurlysAreReallyMisleading() {
+    void curly_braces_are_not_required_when_the_block_contains_a_single_instruction_but_can_be_misleading() {
         int x = 1;
         boolean secretBoolean = false;
         boolean otherBooleanCondition = true;
-        // Curly braces after an "if" or "else" are not required...
+
         if (secretBoolean)
             x++;
         if (otherBooleanCondition)
             x = 10;
         else
             x--;
-        // ...but they are recommended.
+
         assertThat(x).isEqualTo(__);
     }
 
     @Koan
-    void ifAsIntended() {
+    void nested_conditions() {
         int x = 1;
         boolean secretBoolean = false;
         boolean otherBooleanCondition = true;
-        // Adding curly braces avoids the "dangling else" problem seen
-        // above.
+
         if (secretBoolean) {
             x++;
             if (otherBooleanCondition) {
@@ -74,13 +80,15 @@ public class KoansConditionals {
         } else {
             x--;
         }
+
         assertThat(x).isEqualTo(__);
     }
 
     @Koan
-    void basicSwitchStatement() {
+    void basic_switch_statement() {
         int i = 1;
-        String result = "Basic ";
+        String result = "";
+        
         switch (i) {
             case 1:
                 result += "One";
@@ -91,13 +99,15 @@ public class KoansConditionals {
             default:
                 result += "Nothing";
         }
+
         assertThat(result).isEqualTo(__);
     }
 
     @Koan
-    void switchStatementFallThrough() {
+    void switch_statement_fall_through() {
         int i = 1;
-        String result = "Basic ";
+        String result = "";
+
         switch (i) {
             case 1:
                 result += "One";
@@ -106,13 +116,15 @@ public class KoansConditionals {
             default:
                 result += "Nothing";
         }
+
         assertThat(result).isEqualTo(__);
     }
 
     @Koan
-    void switchStatementCrazyFallThrough() {
+    void switch_statement_with_an_unusual_case_ordering() {
         int i = 5;
-        String result = "Basic ";
+        String result = "";
+
         switch (i) {
             case 1:
                 result += "One";
@@ -121,16 +133,16 @@ public class KoansConditionals {
             case 2:
                 result += "Two";
         }
+
         assertThat(result).isEqualTo(__);
     }
 
     @Koan
-    void switchStatementConstants() {
+    void switch_statement_constants() {
         int i = 5;
-        // What happens if you remove the 'final' modifier?
-        // What does this mean for case values?
         final int caseOne = 1;
-        String result = "Basic ";
+        String result = "";
+
         switch (i) {
             case caseOne:
                 result += "One";
@@ -138,53 +150,58 @@ public class KoansConditionals {
             default:
                 result += "Nothing";
         }
+
         assertThat(result).isEqualTo(__);
     }
 
     @Koan
-    void switchStatementSwitchValues() {
-        // Try different (primitive) types for 'c'
-        // Which types do compile?
-        // Does boxing work?
-        char c = 'a';
-        String result = "Basic ";
+    void switch_statement_can_handle_multiple_types() {
+        int c = 97;
+        String result = "";
+
         switch (c) {
             case 'a':
-                result += "One";
+                result += "The letter 'a'";
                 break;
             default:
                 result += "Nothing";
         }
+
         assertThat(result).isEqualTo(__);
     }
 
     @Koan
-    void shortCircuit() {
+    void conditional_or() {
         Counter trueCount = new Counter(true);
         Counter falseCount = new Counter(false);
-        String x = "Hai";
+
+        String result = "No";
         if (trueCount.count() || falseCount.count()) {
-            x = "kthxbai";
+            result = "Yes";
         }
-        assertThat(x).isEqualTo(__);
+
+        assertThat(result).isEqualTo(__);
         assertThat(trueCount.count).isEqualTo(__);
         assertThat(falseCount.count).isEqualTo(__);
     }
 
     @Koan
-    void bitwise() {
+    void bitwise_or() {
         Counter trueCount = new Counter(true);
         Counter falseCount = new Counter(false);
-        String x = "Hai";
+
+        String result = "No";
         if (trueCount.count() | falseCount.count()) {
-            x = "kthxbai";
+            result = "Yes";
         }
-        assertThat(x).isEqualTo(__);
+
+        assertThat(result).isEqualTo(__);
         assertThat(trueCount.count).isEqualTo(__);
         assertThat(falseCount.count).isEqualTo(__);
     }
 
     class Counter {
+
         boolean returnValue;
         int count = 0;
 
@@ -197,4 +214,6 @@ public class KoansConditionals {
             return returnValue;
         }
     }
+
+    // TODO: add more conditionals
 }

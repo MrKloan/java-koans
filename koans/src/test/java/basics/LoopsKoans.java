@@ -1,138 +1,173 @@
 package basics;
 
+import io.fries.koans.Koan;
 
-import com.sandwich.koan.Koan;
+import static io.fries.koans.KoanAssert.__;
+import static io.fries.koans.KoanAssert.assertThat;
 
-import static com.sandwich.koan.constant.KoanConstants.__;
-import static com.sandwich.util.Assert.assertThat;
-
-
-public class LoopsKoans {
+@SuppressWarnings("all")
+class LoopsKoans {
 
     @Koan
-    void basicForLoop1() {
-        String s = "";
+    void basic_for_loop_1() {
+        String result = "";
+
         for (int i = 0; i < 5; i++) {
-            s += i + " ";
+            result += i + " ";
         }
-        assertThat(s).isEqualTo(__);
+
+        assertThat(result).isEqualTo(__);
     }
 
     @Koan
-    void basicForLoop2() {
-        String s = "";
+    void basic_for_loop_2() {
+        String result = "";
+
         for (int i = -5; i < 1; i++) {
-            s += i + " ";
+            result += i + " ";
         }
-        assertThat(s).isEqualTo(__);
+
+        assertThat(result).isEqualTo(__);
     }
 
     @Koan
-    void basicForLoop3() {
-        String s = "";
+    void basic_for_loop_3() {
+        String result = "";
+
         for (int i = 5; i > 0; i--) {
-            s += i + " ";
+            result += i + " ";
         }
-        assertThat(s).isEqualTo(__);
+
+        assertThat(result).isEqualTo(__);
     }
 
     @Koan
-    void basicForLoop4() {
-        String s = "";
+    void basic_for_loop_4() {
+        String result = "";
+
         for (int i = 0; i < 11; i += 2) {
-            s += i + " ";
+            result += i + " ";
         }
-        assertThat(s).isEqualTo(__);
+
+        assertThat(result).isEqualTo(__);
     }
 
     @Koan
-    void basicForLoop5() {
-        String s = "";
+    void basic_for_loop_5() {
+        String result = "";
+
         for (int i = 1; i <= 16; i *= 2) {
-            s += i + " ";
+            result += i + " ";
         }
-        assertThat(s).isEqualTo(__);
+
+        assertThat(result).isEqualTo(__);
     }
 
     @Koan
-    void basicForLoopWithTwoVariables1() {
-        String s = "";
+    void basic_for_loop_with_two_variables() {
+        String result = "";
+
         for (int i = 0, j = 10; i < 5 && j > 5; i++, j--) {
-            s += i + " " + j + " ";
+            result += i + " " + j + " ";
         }
-        assertThat(s).isEqualTo(__);
+
+        assertThat(result).isEqualTo(__);
     }
 
     @Koan
-    void nestedLoops() {
-        String s = "";
+    void nested_loops() {
+        String result = "";
+
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                s += "(" + i + ", " + j + ") ";
+                result += "(" + i + ", " + j + ") ";
             }
-            s += " - ";
+            result += " - ";
         }
-        assertThat(s).isEqualTo(__);
+
+        assertThat(result).isEqualTo(__);
     }
 
     @Koan
-    void extendedForLoop() {
-        int[] is = {1, 2, 3, 4};
-        String s = "";
-        for (int j : is) {
-            s += j + " ";
+    void foreach_loop() {
+        int[] numbers = {1, 2, 3, 4};
+        String result = "";
+
+        for (int number : numbers) {
+            result += number + " ";
         }
-        assertThat(s).isEqualTo(__);
+
+        assertThat(result).isEqualTo(__);
     }
 
     @Koan
-    void whileLoop() {
+    void while_loop() {
         int result = 0;
+
         while (result < 3) {
             result++;
         }
+
         assertThat(result).isEqualTo(__);
     }
 
     @Koan
-    void doLoop() {
+    void do_while_loop_1() {
         int result = 0;
+
         do {
             result++;
         } while (false);
+
         assertThat(result).isEqualTo(__);
     }
 
     @Koan
-    void extendedForLoopBreak() {
-        String[] sa = {"Dog", "Cat", "Tiger"};
+    void do_while_loop_2() {
+        int result = 0;
+
+        do {
+            result++;
+        } while (result < 3);
+
+        assertThat(result).isEqualTo(__);
+    }
+
+    @Koan
+    void break_a_loop() {
+        String[] animals = {"Dog", "Cat", "Tiger"};
         int count = 0;
-        for (String current : sa) {
+
+        for (String current : animals) {
             if ("Cat".equals(current)) {
                 break;
             }
             count++;
         }
+
         assertThat(count).isEqualTo(__);
     }
 
     @Koan
-    void extendedForLoopContinue() {
-        String[] sa = {"Dog", "Cat", "Tiger"};
+    void continue_a_loop() {
+        String[] animals = {"Dog", "Cat", "Tiger"};
         int count = 0;
-        for (String current : sa) {
+
+        for (String current : animals) {
             if ("Dog".equals(current)) {
                 continue;
             } else {
                 count++;
             }
         }
+
         assertThat(count).isEqualTo(__);
     }
 
     @Koan
-    void forLoopContinueLabel() {
+    void continue_a_loop_with_label() {
         int count = 0;
+
         outerLabel:
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
@@ -143,14 +178,14 @@ public class LoopsKoans {
             }
             count += 10;
         }
-        // What does continue with a label mean?
-        // What gets executed? Where does the program flow continue?
+
         assertThat(count).isEqualTo(__);
     }
 
     @Koan
-    void forLoopBreakLabel() {
+    void break_a_loop_with_label() {
         int count = 0;
+
         outerLabel:
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -161,8 +196,7 @@ public class LoopsKoans {
             }
             count += 10;
         }
-        // What does break with a label mean?
-        // What gets executed? Where does the program flow continue?
+
         assertThat(count).isEqualTo(__);
     }
 }

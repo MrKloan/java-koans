@@ -7,6 +7,7 @@ import java.io.IOException;
 import static io.fries.koans.KoanAssert.__;
 import static io.fries.koans.KoanAssert.assertThat;
 
+@SuppressWarnings("all")
 class ExceptionsKoans {
 
     private void doStuff() throws IOException {
@@ -15,45 +16,45 @@ class ExceptionsKoans {
 
     @Koan
     void catch_checked_exceptions_using_a_try_catch_block() {
-        String status;
+        String result;
 
         try {
             doStuff();
-            status = "try";
+            result = "try";
         } catch (IOException e) {
-            status = "catch";
+            result = "catch";
         }
 
-        assertThat(status).isEqualTo(__);
+        assertThat(result).isEqualTo(__);
     }
 
     @Koan
     void use_a_finally_block() {
-        String status = "";
+        String result = "";
 
         try {
             doStuff();
-            status += "try";
+            result += "try";
         } catch (IOException e) {
-            status += "catch";
+            result += "catch";
         } finally {
-            status += ", finally";
+            result += ", finally";
         }
 
-        assertThat(status).isEqualTo(__);
+        assertThat(result).isEqualTo(__);
     }
 
     @Koan
     void use_a_finally_block_without_catch() {
-        String status = "";
+        String result = "";
 
         try {
-            status = "try";
+            result = "try";
         } finally {
-            status += ", finally";
+            result += ", finally";
         }
 
-        assertThat(status).isEqualTo(__);
+        assertThat(result).isEqualTo(__);
     }
 
     private void doMoreStuff(StringBuilder stringBuilder) {
@@ -110,6 +111,12 @@ class ExceptionsKoans {
         // __
     }
 
+    class ParentException extends Exception {
+    }
+
+    class ChildException extends ParentException {
+    }
+
     private void throwSomething() throws ParentException {
         throw new ChildException();
     }
@@ -161,11 +168,5 @@ class ExceptionsKoans {
         }
 
         assertThat(result).isEqualTo(__);
-    }
-
-    class ParentException extends Exception {
-    }
-
-    class ChildException extends ParentException {
     }
 }

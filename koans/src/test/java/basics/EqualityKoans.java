@@ -49,7 +49,7 @@ class EqualityKoans {
 
     @Koan
     void by_default_an_object_is_equal_to_itself() {
-        Object obj = new Object();
-        assertThat(obj.equals(obj)).isEqualTo(__);
+        Object object = new Object();
+        assertThat(object.equals(object)).isEqualTo(__);
     }
 }
