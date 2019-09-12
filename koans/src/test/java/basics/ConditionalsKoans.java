@@ -88,7 +88,7 @@ class ConditionalsKoans {
     void basic_switch_statement() {
         int i = 1;
         String result = "";
-        
+
         switch (i) {
             case 1:
                 result += "One";
@@ -170,13 +170,28 @@ class ConditionalsKoans {
         assertThat(result).isEqualTo(__);
     }
 
+    class Counter {
+
+        boolean returnValue;
+        int count = 0;
+
+        Counter(boolean returnValue) {
+            this.returnValue = returnValue;
+        }
+
+        boolean increment() {
+            count++;
+            return returnValue;
+        }
+    }
+
     @Koan
     void conditional_or() {
         Counter trueCount = new Counter(true);
         Counter falseCount = new Counter(false);
 
         String result = "No";
-        if (trueCount.count() || falseCount.count()) {
+        if (trueCount.increment() || falseCount.increment()) {
             result = "Yes";
         }
 
@@ -191,7 +206,7 @@ class ConditionalsKoans {
         Counter falseCount = new Counter(false);
 
         String result = "No";
-        if (trueCount.count() | falseCount.count()) {
+        if (trueCount.increment() | falseCount.increment()) {
             result = "Yes";
         }
 
@@ -200,20 +215,129 @@ class ConditionalsKoans {
         assertThat(falseCount.count).isEqualTo(__);
     }
 
-    class Counter {
+    @Koan
+    void conditional_and() {
+        Counter trueCount = new Counter(true);
+        Counter falseCount = new Counter(false);
 
-        boolean returnValue;
-        int count = 0;
-
-        Counter(boolean returnValue) {
-            this.returnValue = returnValue;
+        String result = "No";
+        if (falseCount.increment() && trueCount.increment()) {
+            result = "Yes";
         }
 
-        boolean count() {
-            count++;
-            return returnValue;
-        }
+        assertThat(result).isEqualTo(__);
+        assertThat(trueCount.count).isEqualTo(__);
+        assertThat(falseCount.count).isEqualTo(__);
     }
 
-    // TODO: add more conditionals
+    @Koan
+    void bitwise_and() {
+        Counter trueCount = new Counter(true);
+        Counter falseCount = new Counter(false);
+
+        String result = "No";
+        if (falseCount.increment() & trueCount.increment()) {
+            result = "Yes";
+        }
+
+        assertThat(result).isEqualTo(__);
+        assertThat(trueCount.count).isEqualTo(__);
+        assertThat(falseCount.count).isEqualTo(__);
+    }
+
+    @Koan
+    void xor_1() {
+        Counter trueCount = new Counter(true);
+        Counter falseCount = new Counter(false);
+
+        String result = "No";
+        if (trueCount.increment() ^ falseCount.increment()) {
+            result = "Yes";
+        }
+
+        assertThat(result).isEqualTo(__);
+        assertThat(trueCount.count).isEqualTo(__);
+        assertThat(falseCount.count).isEqualTo(__);
+    }
+
+    @Koan
+    void xor_2() {
+        Counter trueCount = new Counter(true);
+        Counter falseCount = new Counter(false);
+
+        String result = "No";
+        if (falseCount.increment() ^ trueCount.increment()) {
+            result = "Yes";
+        }
+
+        assertThat(result).isEqualTo(__);
+        assertThat(trueCount.count).isEqualTo(__);
+        assertThat(falseCount.count).isEqualTo(__);
+    }
+
+    @Koan
+    void xor_3() {
+        Counter trueCount = new Counter(true);
+        Counter falseCount = new Counter(false);
+
+        String result = "No";
+        if (trueCount.increment() ^ trueCount.increment()) {
+            result = "Yes";
+        }
+
+        assertThat(result).isEqualTo(__);
+        assertThat(trueCount.count).isEqualTo(__);
+        assertThat(falseCount.count).isEqualTo(__);
+    }
+
+    @Koan
+    void greater_than() {
+        int x = 1;
+        assertThat(x > 1).isEqualTo(__);
+    }
+
+    @Koan
+    void greater_or_equal() {
+        int x = 1;
+        assertThat(x >= 1).isEqualTo(__);
+    }
+
+    @Koan
+    void lower_than() {
+        int x = 1;
+        assertThat(x < 1).isEqualTo(__);
+    }
+
+    @Koan
+    void lower_or_equal() {
+        int x = 1;
+        assertThat(x <= 1).isEqualTo(__);
+    }
+
+    @Koan
+    void not_1() {
+        assertThat(!true).isEqualTo(__);
+    }
+
+    @Koan
+    void not_2() {
+        int x = 1;
+        assertThat(!(x == 1)).isEqualTo(__);
+    }
+
+    @Koan
+    void ternary_operator_1() {
+        int x = 1;
+        String result = x >= 0 ? "Positive" : "Negative";
+
+        assertThat(result).isEqualTo(__);
+    }
+
+    @Koan
+    void ternary_operator_2() {
+        int x = -1;
+        String result = x >= 0 ? "Positive" : "Negative";
+
+        assertThat(result).isEqualTo(__);
+    }
 }
