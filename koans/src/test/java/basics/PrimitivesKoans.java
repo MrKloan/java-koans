@@ -1,227 +1,188 @@
 package basics;
 
-import com.sandwich.koan.Koan;
+import io.fries.koans.Koan;
 
-import static com.sandwich.koan.constant.KoanConstants.__;
-import static com.sandwich.util.Assert.assertThat;
+import static io.fries.koans.KoanAssert.__;
+import static io.fries.koans.KoanAssert.assertThat;
+import static io.fries.koans.basics.Primitives.getType;
 
-public class PrimitivesKoans {
+class PrimitivesKoans {
 
     @Koan
-    void wholeNumbersAreOfTypeInt() {
-        assertThat(getType(1)).isEqualTo(__); // hint: int.class
+    void whole_numbers_are_of_type_int() {
+        assertThat(getType(1)).isEqualTo(__);
     }
 
     @Koan
-    void primitivesOfTypeIntHaveAnObjectTypeInteger() {
+    void primitives_of_type_int_have_an_object_type_integer() {
         Object number = 1;
         assertThat(getType(number)).isEqualTo(__);
-
-        // Primitives can be automatically changed into their object type via a process called auto-boxing
-        // We will explore this in more detail in intermediate.AboutAutoboxing
     }
 
     @Koan
-    void integersHaveAFairlyLargeRange() {
+    void integers_have_a_fairly_large_range() {
         assertThat(Integer.MIN_VALUE).isEqualTo(__);
         assertThat(Integer.MAX_VALUE).isEqualTo(__);
     }
 
     @Koan
-    void integerSize() {
-        assertThat(Integer.SIZE).isEqualTo(__);  // This is the amount of bits used to store an int
+    void integer_size_in_bits() {
+        assertThat(Integer.SIZE).isEqualTo(__);
     }
 
     @Koan
-    void wholeNumbersCanAlsoBeOfTypeLong() {
+    void whole_numbers_can_also_be_of_type_long() {
         assertThat(getType(1L)).isEqualTo(__);
     }
 
     @Koan
-    void primitivesOfTypeLongHaveAnObjectTypeLong() {
+    void primitives_of_type_long_have_an_object_type_long() {
         Object number = 1L;
         assertThat(getType(number)).isEqualTo(__);
     }
 
     @Koan
-    void longsHaveALargerRangeThanInts() {
+    void longs_have_a_larger_range_than_ints() {
         assertThat(Long.MIN_VALUE).isEqualTo(__);
         assertThat(Long.MAX_VALUE).isEqualTo(__);
     }
 
     @Koan
-    void longSize() {
+    void long_size_in_bits() {
         assertThat(Long.SIZE).isEqualTo(__);
     }
 
     @Koan
-    void wholeNumbersCanAlsoBeOfTypeShort() {
-        assertThat(getType((short) 1)).isEqualTo(__); // The '(short)' is called an explicit cast - to type 'short'
+    void whole_numbers_can_also_be_of_type_short() {
+        assertThat(getType((short) 1)).isEqualTo(__);
     }
 
     @Koan
-    void primitivesOfTypeShortHaveAnObjectTypeShort() {
+    void primitives_of_type_short_have_an_object_type_short() {
         Object number = (short) 1;
         assertThat(getType(number)).isEqualTo(__);
     }
 
     @Koan
-    void shortsHaveASmallerRangeThanInts() {
-        assertThat(Short.MIN_VALUE).isEqualTo(__);  // hint: You'll need an explicit cast
+    void shorts_have_a_smaller_range_than_ints() {
+        assertThat(Short.MIN_VALUE).isEqualTo(__);
         assertThat(Short.MAX_VALUE).isEqualTo(__);
     }
 
     @Koan
-    void shortSize() {
+    void short_size_in_bits() {
         assertThat(Short.SIZE).isEqualTo(__);
     }
 
     @Koan
-    void wholeNumbersCanAlsoBeOfTypeByte() {
+    void whole_numbers_can_also_be_of_type_byte() {
         assertThat(getType((byte) 1)).isEqualTo(__);
     }
 
     @Koan
-    void primitivesOfTypeByteHaveAnObjectTypeByte() {
+    void primitives_of_type_byte_have_an_object_type_byte() {
         Object number = (byte) 1;
         assertThat(getType(number)).isEqualTo(__);
     }
 
     @Koan
-    void bytesHaveASmallerRangeThanShorts() {
+    void bytes_have_a_smaller_range_than_shorts() {
         assertThat(Byte.MIN_VALUE).isEqualTo(__);
         assertThat(Byte.MAX_VALUE).isEqualTo(__);
-
-        // Why would you use short or byte considering that you need to do explicit casts?
     }
 
     @Koan
-    void byteSize() {
+    void byte_size_in_bits() {
         assertThat(Byte.SIZE).isEqualTo(__);
     }
 
     @Koan
-    void wholeNumbersCanAlsoBeOfTypeChar() {
+    void whole_numbers_can_also_be_of_type_char() {
         assertThat(getType((char) 1)).isEqualTo(__);
     }
 
     @Koan
-    void singleCharactersAreOfTypeChar() {
+    void single_characters_are_of_type_char() {
         assertThat(getType('a')).isEqualTo(__);
     }
 
     @Koan
-    void primitivesOfTypeCharHaveAnObjectTypeCharacter() {
+    void primitives_of_type_char_have_an_object_type_character() {
         Object number = (char) 1;
         assertThat(getType(number)).isEqualTo(__);
     }
 
     @Koan
-    void charsCanOnlyBePositive() {
+    void chars_can_only_be_positive() {
         assertThat((int) Character.MIN_VALUE).isEqualTo(__);
         assertThat((int) Character.MAX_VALUE).isEqualTo(__);
-
-        // Why did we cast MIN_VALUE and MAX_VALUE to int? Try it without the cast.
     }
 
     @Koan
-    void charSize() {
+    void char_size_in_bits() {
         assertThat(Character.SIZE).isEqualTo(__);
     }
 
     @Koan
-    void decimalNumbersAreOfTypeDouble() {
+    void decimal_numbers_are_of_type_double() {
         assertThat(getType(1.0)).isEqualTo(__);
     }
 
     @Koan
-    void primitivesOfTypeDoubleCanBeDeclaredWithoutTheDecimalPoint() {
+    void primitives_of_type_double_can_be_declared_without_the_decimal_point() {
         assertThat(getType(1d)).isEqualTo(__);
     }
 
     @Koan
-    void primitivesOfTypeDoubleCanBeDeclaredWithExponents() {
+    void primitives_of_type_double_can_be_declared_with_exponents() {
         assertThat(getType(1e3)).isEqualTo(__);
         assertThat(1.0e3).isEqualTo(__);
         assertThat(1E3).isEqualTo(__);
     }
 
     @Koan
-    void primitivesOfTypeDoubleHaveAnObjectTypeDouble() {
+    void primitives_of_type_double_have_an_object_type_double() {
         Object number = 1.0;
         assertThat(getType(number)).isEqualTo(__);
     }
 
     @Koan
-    void doublesHaveALargeRange() {
+    void doubles_have_a_large_range() {
         assertThat(Double.MIN_VALUE).isEqualTo(__);
         assertThat(Double.MAX_VALUE).isEqualTo(__);
     }
 
     @Koan
-    void doubleSize() {
+    void double_size_in_bits() {
         assertThat(Double.SIZE).isEqualTo(__);
     }
 
     @Koan
-    void decimalNumbersCanAlsoBeOfTypeFloat() {
+    void decimal_numbers_can_also_be_of_type_float() {
         assertThat(getType(1f)).isEqualTo(__);
     }
 
     @Koan
-    void primitivesOfTypeFloatCanBeDeclaredWithExponents() {
+    void primitives_of_type_float_can_be_declared_with_exponents() {
         assertThat(getType(1e3f)).isEqualTo(__);
         assertThat(1.0e3f).isEqualTo(__);
         assertThat(1E3f).isEqualTo(__);
     }
 
     @Koan
-    void primitivesOfTypeFloatHaveAnObjectTypeFloat() {
+    void primitives_of_type_float_have_an_object_type_float() {
         Object number = 1f;
         assertThat(getType(number)).isEqualTo(__);
     }
 
     @Koan
-    void floatsHaveASmallerRangeThanDoubles() {
+    void floats_have_a_smaller_range_than_doubles() {
         assertThat(Float.MIN_VALUE).isEqualTo(__);
         assertThat(Float.MAX_VALUE).isEqualTo(__);
     }
 
     @Koan
-    void floatSize() {
+    void float_size() {
         assertThat(Float.SIZE).isEqualTo(__);
     }
-
-    private Class<?> getType(int value) {
-        return int.class;
-    }
-
-    private Class<?> getType(long value) {
-        return long.class;
-    }
-
-    private Class<?> getType(float value) {
-        return float.class;
-    }
-
-    private Class<?> getType(double value) {
-        return double.class;
-    }
-
-    private Class<?> getType(byte value) {
-        return byte.class;
-    }
-
-    private Class<?> getType(char value) {
-        return char.class;
-    }
-
-    private Class<?> getType(short value) {
-        return short.class;
-    }
-
-    private Class<?> getType(Object value) {
-        return value.getClass();
-    }
-
 }

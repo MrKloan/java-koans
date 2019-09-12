@@ -1,63 +1,62 @@
 package basics;
 
-import com.sandwich.koan.Koan;
+import io.fries.koans.Koan;
 
-import static com.sandwich.koan.constant.KoanConstants.__;
-import static com.sandwich.util.Assert.assertThat;
+import static io.fries.koans.KoanAssert.__;
+import static io.fries.koans.KoanAssert.assertThat;
 
-public class MethodPreferenceKoans {
+@SuppressWarnings("all")
+class MethodPreferenceKoans {
+
+    class A {
+
+        String doStuff(int i) {
+            return "int";
+        }
+
+        String doStuff(Integer i) {
+            return "Integer";
+        }
+
+        String doStuff(Object o) {
+            return "Object";
+        }
+
+        String doStuff(int... i) {
+            return "int vararg";
+        }
+    }
 
     @Koan
-    void methodPreferenceInt() {
+    void method_preference_int() {
         assertThat(new A().doStuff(1)).isEqualTo(__);
     }
 
     @Koan
-    void methodPreferenceInteger() {
+    void method_preference_integer() {
         assertThat(new A().doStuff(Integer.valueOf(1))).isEqualTo(__);
     }
 
     @Koan
-    void methodPreferenceLong() {
+    void method_preference_long() {
         long l = 1;
         assertThat(new A().doStuff(l)).isEqualTo(__);
     }
 
     @Koan
-    void methodPreferenceBoxedLong() {
+    void method_preference_boxed_long() {
         Long l = Long.valueOf(1);
         assertThat(new A().doStuff(l)).isEqualTo(__);
     }
 
     @Koan
-    void methodPreferenceDouble() {
-        Double l = Double.valueOf(1);
-        assertThat(new A().doStuff(l)).isEqualTo(__);
+    void method_preference_double() {
+        Double d = Double.valueOf(1);
+        assertThat(new A().doStuff(d)).isEqualTo(__);
     }
 
     @Koan
-    void methodPreferenceMore() {
-        // What happens if you change 'Integer' to 'Double'
-        // Does this explain 'methodPreferenceDouble'?
-        // Think about why this happens?
+    void method_preference_more() {
         assertThat(new A().doStuff(1, Integer.valueOf(2))).isEqualTo(__);
-    }
-
-    class A {
-        public String doStuff(int i) {
-            return "int";
-        }
-
-        public String doStuff(Integer i) {
-            return "Integer";
-        }
-
-        public String doStuff(Object i) {
-            return "Object";
-        }
-
-        public String doStuff(int... i) {
-            return "int vararg";
-        }
     }
 }

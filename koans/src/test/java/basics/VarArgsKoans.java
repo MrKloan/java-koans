@@ -2,49 +2,51 @@ package basics;
 
 import io.fries.koans.Koan;
 
-import static com.sandwich.koan.constant.KoanConstants.__;
-import static com.sandwich.util.Assert.assertThat;
+import static io.fries.koans.KoanAssert.__;
+import static io.fries.koans.KoanAssert.assertThat;
 
+@SuppressWarnings("all")
 class VarArgsKoans {
 
-    @Koan
-    void varArgsCanBeTreatedAsArrays() {
-        assertThat(new ExampleClass().canBeTreatedAsArray(1, 2, 3)).isEqualTo(__);
-    }
+    static class VarArgsExample {
 
-    @Koan
-    void youCanPassInAsManyArgumentsAsYouLike() {
-        assertThat(new ExampleClass().getLength(1, 2, 3)).isEqualTo(__);
-        assertThat(new ExampleClass().getLength(1, 2, 3, 4, 5, 6, 7, 8)).isEqualTo(__);
-    }
-
-    @Koan
-    void youCanPassInZeroArgumentsIfYouLike() {
-        assertThat(new ExampleClass().getLength()).isEqualTo(__);
-    }
-
-    @Koan
-    void youCanHaveOtherTypesInTheMethodSignature() {
-        assertThat(new ExampleClass().verboseLength("This is how many items were passed in: ", 1, 2, 3, 4)).isEqualTo(__);
-    }
-
-    static class ExampleClass {
-        public boolean canBeTreatedAsArray(Integer... arguments) {
+        boolean canBeTreatedAsArray(Integer... arguments) {
             return arguments instanceof Integer[];
         }
 
-        public int getLength(Integer... arguments) {
+        int getLength(Integer... arguments) {
             return arguments.length;
         }
 
-        public String verboseLength(String prefix, Object... arguments) {
+        String prefixedLength(String prefix, Object... arguments) {
             return prefix + arguments.length;
         }
 
         // *******
-        // The following methods won't compile because Java only permits varargs as last argument
+        // The following methods won't compile because varargs can only be used as last argument
         // *******
         // public String invalidMethodDeclaration(String... arguments, String... otherArguments) { return ""; }
         // public String otherInvalidMethodDeclaration(String... arguments, String otherArgument) { return ""; }
+    }
+
+    @Koan
+    void var_args_can_be_treated_as_arrays() {
+        assertThat(new VarArgsExample().canBeTreatedAsArray(1, 2, 3)).isEqualTo(__);
+    }
+
+    @Koan
+    void you_can_pass_in_as_many_arguments_as_you_like() {
+        assertThat(new VarArgsExample().getLength(1, 2, 3)).isEqualTo(__);
+        assertThat(new VarArgsExample().getLength(1, 2, 3, 4, 5, 6, 7, 8)).isEqualTo(__);
+    }
+
+    @Koan
+    void you_can_pass_in_zero_arguments_if_you_like() {
+        assertThat(new VarArgsExample().getLength()).isEqualTo(__);
+    }
+
+    @Koan
+    void you_can_have_other_types_in_the_method_signature() {
+        assertThat(new VarArgsExample().prefixedLength("This is how many items were passed in: ", 1, 2, 3, 4)).isEqualTo(__);
     }
 }

@@ -1,65 +1,54 @@
 package basics;
 
-import com.sandwich.koan.Koan;
+import io.fries.koans.Koan;
 
-import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.List;
+import static io.fries.koans.KoanAssert.__;
+import static io.fries.koans.KoanAssert.assertThat;
+import static java.lang.Integer.toHexString;
+import static java.text.MessageFormat.format;
 
-import static com.sandwich.koan.constant.KoanConstants.__;
-import static com.sandwich.util.Assert.assertThat;
-
-public class ObjectsKoans {
+class ObjectsKoans {
 
     @Koan
-    void newObjectInstancesCanBeCreatedDirectly() {
+    void new_object_instances_can_be_created_directly() {
         assertThat(new Object() instanceof Object).isEqualTo(__);
     }
 
     @Koan
-    void allClassesInheritFromObject() {
+    void all_classes_inherit_from_object() {
         class Foo {
         }
 
-        Class<?>[] ancestors = getAncestors(new Foo());
-        assertThat(ancestors[0]).isEqualTo(__);
-        assertThat(ancestors[1]).isEqualTo(__);
+        assertThat(new Foo() instanceof Foo).isEqualTo(__);
+        assertThat(new Foo() instanceof Object).isEqualTo(__);
     }
 
     @Koan
-    void objectToString() {
+    void object_to_string() {
         Object object = new Object();
-        // TODO: Why is it best practice to ALWAYS override toString?
-        String expectedToString = MessageFormat.format("{0}@{1}", Object.class.getName(), Integer.toHexString(object.hashCode()));
-        assertThat(expectedToString).isEqualTo(__); // hint: object.toString()
+        String strangeString = format("{0}@{1}", Object.class.getName(), toHexString(object.hashCode()));
+
+        assertThat(strangeString).isEqualTo(__);
     }
 
     @Koan
-    void toStringConcatenates() {
+    void to_string_is_implicitly_called_for_string_concatenation() {
         final String string = "ha";
+
         Object object = new Object() {
             @Override
             public String toString() {
                 return string;
             }
         };
+
         assertThat(string + object).isEqualTo(__);
     }
 
     @Koan
-    void toStringIsTestedForNullWhenInvokedImplicitly() {
+    void to_string_can_be_used_with_null_references_when_invoked_implicitly() {
         String string = "string";
+
         assertThat(string + null).isEqualTo(__);
     }
-
-    private Class<?>[] getAncestors(Object object) {
-        List<Class<?>> ancestors = new ArrayList<Class<?>>();
-        Class<?> clazz = object.getClass();
-        while (clazz != null) {
-            ancestors.add(clazz);
-            clazz = clazz.getSuperclass();
-        }
-        return ancestors.toArray(new Class[]{});
-    }
-
 }

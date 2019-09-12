@@ -16,7 +16,6 @@ class ConstructorsKoans {
         A() {
             someString += "x";
         }
-
     }
 
     class B extends A {
@@ -31,11 +30,6 @@ class ConstructorsKoans {
         assertThat(new B().someString).isEqualTo(__);
     }
 
-    @Koan
-    void explicit_constructor_call() {
-        assertThat(new OtherB().someString).isEqualTo(__);
-    }
-
     class OtherA {
 
         String someString = "a";
@@ -47,7 +41,6 @@ class ConstructorsKoans {
         OtherA(String s) {
             someString += s;
         }
-
     }
 
     class OtherB extends OtherA {
@@ -56,6 +49,10 @@ class ConstructorsKoans {
             super("Boo");
             someString += "g";
         }
+    }
 
+    @Koan
+    void explicit_constructor_call() {
+        assertThat(new OtherB().someString).isEqualTo(__);
     }
 }
