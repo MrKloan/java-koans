@@ -10,7 +10,7 @@ Credit goes to:
 
 ## Backlog
 
-* Inner classes
+* Interfaces
 * static / final keyword
 * var keyword
 * Regex
