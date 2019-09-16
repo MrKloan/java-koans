@@ -10,19 +10,21 @@ Credit goes to:
 
 ## Backlog
 
-* Interfaces
 * static / final keyword
 * var keyword
 * Regex
-* Default methods
-* Multiple inheritance
-* Comparable
+
 * Collections
+* Comparable
 * IO / Files (try with resources)
 * Serialization
-* HTTP
+
+* CompletableFuture
+* HttpClient, HttpRequest
+
 * Lambda
 * Optional API
 * Stream API
 * Time API
+
 * Annotations
