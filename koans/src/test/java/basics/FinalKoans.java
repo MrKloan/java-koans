@@ -124,4 +124,28 @@ class FinalKoans {
 
         assertThat(action).isEqualTo(__);
     }
+
+    class ImmutableValueHolder {
+
+        final int value;
+
+        ImmutableValueHolder(final int value) {
+            this.value = value;
+        }
+
+        ImmutableValueHolder add(final int valueToAdd) {
+            return new ImmutableValueHolder(this.value + valueToAdd);
+        }
+    }
+
+    @Koan
+    void immutability_is_a_great_way_to_enforce_data_consistency() {
+        ImmutableValueHolder originalValueHolder = new ImmutableValueHolder(3);
+        assertThat(originalValueHolder.value).isEqualTo(__);
+
+        ImmutableValueHolder updatedValueHolder = originalValueHolder.add(2);
+        assertThat(updatedValueHolder.value).isEqualTo(__);
+
+        assertThat(originalValueHolder == updatedValueHolder).isEqualTo(__);
+    }
 }
