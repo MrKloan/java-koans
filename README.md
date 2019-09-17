@@ -10,7 +10,6 @@ Credit goes to:
 
 ## Backlog
 
-* static / final keyword
 * var keyword
 * Regex
 
