@@ -198,7 +198,7 @@ class PrimitivesKoans {
     @Koan
     void unboxing_of_an_integer_to_an_int() {
         int i = Integer.valueOf(5);
-        assertThat(i).isEqualTo(5);
+        assertThat(i).isEqualTo(__);
     }
 
     @Test
