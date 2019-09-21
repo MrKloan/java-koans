@@ -10,6 +10,11 @@ Credit goes to:
 
 ## Backlog
 
+### CLI
+* Main
+* stdout/stderr
+* Scanner
+
 ### Objects
 * Generics
 
@@ -29,5 +34,6 @@ Credit goes to:
 * CompletableFuture
 * JDBC
 
-### Annotations
+### Misc
 * Annotations
+* Reflection

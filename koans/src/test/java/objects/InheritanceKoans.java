@@ -44,17 +44,6 @@ class InheritanceKoans {
         }
     }
 
-    abstract class Farm {
-        abstract public Animal findAnimal();
-    }
-
-    class CowFarm extends Farm {
-
-        public Animal findAnimal() {
-            return new Cow();
-        }
-    }
-
     @Koan
     void method_overloading() {
         Cow bob = new Cow();
@@ -107,9 +96,63 @@ class InheritanceKoans {
         assertThat(barney instanceof Dog).isEqualTo(__);
     }
 
+    abstract class Farm {
+        abstract public Animal findAnimal();
+    }
+
+    class CowFarm extends Farm {
+
+        public Animal findAnimal() {
+            return new Cow();
+        }
+    }
+
     @Koan
     void overridden_methods_may_return_subtype() {
         Cow cow = (Cow) new CowFarm().findAnimal(); // What do you need to change in order to get rid of this type cast?
         assertThat(cow instanceof Cow).isEqualTo(__);
+    }
+
+    @Koan
+    void a_subclass_will_always_call_its_parent_constructor_before_its_own() {
+        class Parent {
+            String result = "a";
+
+            Parent() {
+                result += "x";
+            }
+        }
+
+        class Child extends Parent {
+            Child() {
+                result += "g";
+            }
+        }
+
+        assertThat(new Child().result).isEqualTo(__);
+    }
+
+    @Koan
+    void a_subclass_constructor_can_choose_which_parent_constructor_to_call_when_multiple_are_defined() {
+        class Parent {
+            String result = "a";
+
+            Parent() {
+                result += "x";
+            }
+
+            Parent(String value) {
+                result += value;
+            }
+        }
+
+        class Child extends Parent {
+            Child() {
+                super("Boo");
+                result += "g";
+            }
+        }
+
+        assertThat(new Child().result).isEqualTo(__);
     }
 }

@@ -1,6 +1,7 @@
 package objects;
 
 import io.fries.koans.Koan;
+import objects.visibility.User;
 
 import static io.fries.koans.KoanAssert.__;
 import static io.fries.koans.KoanAssert.assertThat;
@@ -194,5 +195,15 @@ class ObjectsKoans {
 
         assertThat(child.hashCode()).isEqualTo(__);
         assertThat(adult.hashCode()).isEqualTo(__);
+    }
+
+    @Koan
+    void visibility_and_encapsulation_are_important_parts_of_object_oriented_programming() {
+        // This `User` class is located under the `objects.visibility` package.
+        // Read the content of this package and try to manipulate the classes in this method.
+        // Some of the concepts demonstrated here are subject to their own koans.
+        final User user = User.of(18);
+
+        assertThat(user.isAdult()).isEqualTo(__);
     }
 }
