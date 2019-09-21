@@ -12,7 +12,7 @@ Credit goes to:
 
 ### Objects
 * Comparable
-* Lambda
+* Generics
 
 ### IO
 * IO / Files (try with resources)
