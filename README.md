@@ -11,8 +11,16 @@ Credit goes to:
 ## Backlog
 
 ### Objects
-* Comparable
 * Generics
+
+### Collections
+* Collections
+* Comparable
+* Stream API
+* Optional API
+
+### Time
+* Time API
 
 ### IO
 * IO / Files (try with resources)
@@ -20,14 +28,6 @@ Credit goes to:
 * HttpClient, HttpRequest
 * CompletableFuture
 * JDBC
-
-### Collections
-* Collections
-* Optional API
-* Stream API
-
-### Time
-* Time API
 
 ### Annotations
 * Annotations

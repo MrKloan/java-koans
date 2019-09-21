@@ -44,8 +44,7 @@ class StaticKoans {
 
     @Koan
     void a_method_cannot_declare_static_variables() {
-        /* static */
-        int z = 1; // Try to uncomment the 'static' keyword. Does it compile? Why?
+        int z = 1; // Try to declare this variable 'static'. Does it compile? Why?
         assertThat(z).isEqualTo(__);
     }
 }
