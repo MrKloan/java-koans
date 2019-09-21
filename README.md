@@ -11,7 +11,6 @@ Credit goes to:
 ## Backlog
 
 ### Objects
-* Regex
 * Comparable
 * Lambda
 
