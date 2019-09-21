@@ -1,10 +1,10 @@
-package basics;
+package objects;
 
 import io.fries.koans.Koan;
 
-import static basics.StaticKoans.StaticInner.y;
 import static io.fries.koans.KoanAssert.__;
 import static io.fries.koans.KoanAssert.assertThat;
+import static objects.StaticKoans.StaticInner.y;
 
 @SuppressWarnings("all")
 class StaticKoans {

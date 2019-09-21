@@ -10,19 +10,25 @@ Credit goes to:
 
 ## Backlog
 
+### Objects
 * Regex
-
-* Collections
 * Comparable
+* Lambda
+
+### IO
 * IO / Files (try with resources)
 * Serialization
-
-* CompletableFuture
 * HttpClient, HttpRequest
+* CompletableFuture
+* JDBC
 
-* Lambda
+### Collections
+* Collections
 * Optional API
 * Stream API
+
+### Time
 * Time API
 
+### Annotations
 * Annotations
