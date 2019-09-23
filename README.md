@@ -10,11 +10,6 @@ Credit goes to:
 
 ## Backlog
 
-### CLI
-* Main
-* stdout/stderr
-* Scanner
-
 ### Objects
 * Generics
 
