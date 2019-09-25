@@ -1,8 +1,8 @@
 package cli;
 
 import io.fries.koans.Koan;
-import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
 import java.util.Scanner;
 import java.util.regex.MatchResult;
 
@@ -32,6 +32,8 @@ class ScannerKoans {
         Scanner scanner = new Scanner(System.in);
 
         assertThat(scanner.next()).isEqualTo(__);
+
+        scanner.close();
     }
 
     @Koan
@@ -43,6 +45,8 @@ class ScannerKoans {
         assertThat(scanner.next()).isEqualTo(__);
         assertThat(scanner.next()).isEqualTo(__);
         assertThat(scanner.next()).isEqualTo(__);
+
+        scanner.close();
     }
 
     @Koan
@@ -56,6 +60,8 @@ class ScannerKoans {
         assertThat(scanner.next()).isEqualTo(__);
         assertThat(scanner.next()).isEqualTo(__);
         assertThat(scanner.next()).isEqualTo(__);
+
+        scanner.close();
     }
 
     @Koan
@@ -66,6 +72,8 @@ class ScannerKoans {
         // __
         scanner.next();
         // __
+
+        scanner.close();
     }
 
     @Koan
@@ -74,6 +82,8 @@ class ScannerKoans {
         Scanner scanner = new Scanner(System.in);
 
         assertThat(scanner.hasNext()).isEqualTo(__);
+
+        scanner.close();
     }
 
     @Koan
@@ -83,6 +93,8 @@ class ScannerKoans {
 
         assertThat(scanner.hasNextLine()).isEqualTo(__);
         assertThat(scanner.nextLine()).isEqualTo(__);
+
+        scanner.close();
     }
 
     @Koan
@@ -93,9 +105,11 @@ class ScannerKoans {
         assertThat(scanner.hasNextInt()).isEqualTo(__);
         assertThat(scanner.nextInt()).isEqualTo(__);
         // Next methods exist for standard types (boolean, double, ...)
+
+        scanner.close();
     }
 
-    @Test
+    @Koan
     void next_can_take_a_regex_pattern() {
         fakeKeyboardInput("cat cats catz");
         Scanner scanner = new Scanner(System.in);
@@ -103,9 +117,11 @@ class ScannerKoans {
         assertThat(scanner.next("cat[sz]?")).isEqualTo(__);
         assertThat(scanner.next("cat[sz]?")).isEqualTo(__);
         assertThat(scanner.next("cat[sz]?")).isEqualTo(__);
+
+        scanner.close();
     }
 
-    @Test
+    @Koan
     void next_throws_an_input_mismatch_exception_when_the_pattern_is_not_respected() {
         fakeKeyboardInput("cat catch");
         Scanner scanner = new Scanner(System.in);
@@ -114,17 +130,22 @@ class ScannerKoans {
         // __
         assertThat(scanner.next("cat[sz]?")).isEqualTo(__);
         // __
+
+        scanner.close();
     }
 
-    @Test
+    @Koan
     void use_has_next_with_a_pattern_to_ensure_that_the_next_element_matches_your_expectations() {
         fakeKeyboardInput("cat catch");
         Scanner scanner = new Scanner(System.in);
+
         assertThat(scanner.next("cat[sz]?")).isEqualTo(__);
         assertThat(scanner.hasNext("cat[sz]?")).isEqualTo(__);
+
+        scanner.close();
     }
 
-    @Test
+    @Koan
     void use_find_in_line_int_order_to_find_an_element_matching_your_pattern() {
         fakeKeyboardInput("One cat, two cats, three catz.");
         Scanner scanner = new Scanner(System.in);
@@ -132,17 +153,21 @@ class ScannerKoans {
         assertThat(scanner.findInLine("cat[sz]?")).isEqualTo(__);
         assertThat(scanner.findInLine("cat[sz]?")).isEqualTo(__);
         assertThat(scanner.findInLine("cat[sz]?")).isEqualTo(__);
+
+        scanner.close();
     }
 
-    @Test
+    @Koan
     void find_in_line_returns_null_when_no_element_matches_the_pattern() {
         fakeKeyboardInput("One cat, two cats, three catz.");
         Scanner scanner = new Scanner(System.in);
 
         assertThat(scanner.findInLine("dog[sz]?")).isEqualTo("dog");
+
+        scanner.close();
     }
 
-    @Test
+    @Koan
     void find_all_returns_all_occurrences_matching_the_pattern() {
         fakeKeyboardInput("One cat, two cats, three catz.");
         Scanner scanner = new Scanner(System.in);
@@ -152,5 +177,17 @@ class ScannerKoans {
         assertThat(cats[0]).isEqualTo(__);
         assertThat(cats[1]).isEqualTo(__);
         assertThat(cats[2]).isEqualTo(__);
+
+        scanner.close();
+    }
+
+    @Koan
+    void a_scanner_can_consume_any_type_of_input_stream() {
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream("This is a stream".getBytes());
+        Scanner scanner = new Scanner(byteArrayInputStream);
+
+        assertThat(scanner.nextLine()).isEqualTo(__);
+
+        scanner.close();
     }
 }
