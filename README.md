@@ -10,9 +10,6 @@ Credit goes to:
 
 ## Backlog
 
-### Objects
-* Generics
-
 ### Collections
 * Collections
 * Comparable
@@ -32,3 +29,4 @@ Credit goes to:
 ### Misc
 * Annotations
 * Reflection
+* Unsafe
