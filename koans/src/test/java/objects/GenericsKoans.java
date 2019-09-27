@@ -6,6 +6,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import static io.fries.koans.KoanAssert.__;
 import static io.fries.koans.KoanAssert.assertThat;
+import static java.util.Arrays.stream;
+import static java.util.stream.Collectors.joining;
 
 @SuppressWarnings("all")
 class GenericsKoans {
@@ -195,30 +197,7 @@ class GenericsKoans {
     }
 
     @Koan
-    void the_wildcard_parameter_can_be_used_to_further_constrain_a_generic_type_while_ignoring_the_concrete_type() {
-        class NumberList<T extends Number> {
-
-            private final T[] values;
-
-            NumberList(final T... values) {
-                this.values = values;
-            }
-
-            T get(final int index) {
-                return values[index];
-            }
-        }
-
-        NumberList<? extends Comparable> comparableNumbers = new NumberList<>(3, 5.f, 7.);
-        Number comparableNumber = comparableNumbers.get(0);
-
-        assertThat(comparableNumber instanceof Number).isEqualTo(__);
-        assertThat(comparableNumber instanceof Comparable).isEqualTo(__);
-        assertThat(comparableNumber instanceof Integer).isEqualTo(__);
-    }
-
-    @Koan
-    void a_class_or_method_can_use_as_much_generic_types_as_needed() {
+    void there_is_no_limit_to_the_number_of_generic_types_a_class_or_method_can_use() {
         class Pair<T, U> {
 
             final T left;
@@ -230,9 +209,166 @@ class GenericsKoans {
             }
         }
 
-        Pair<Integer, String> pair = new Pair<>(1, "Two");
+        Pair<Integer, String> firstPair = new Pair<>(1, "Two");
+        assertThat(firstPair.left instanceof Integer).isEqualTo(__);
+        assertThat(firstPair.right instanceof String).isEqualTo(__);
 
-        assertThat(pair.left).isEqualTo(__);
-        assertThat(pair.right).isEqualTo(__);
+        Pair<String, Double> pair = new Pair<>("One", 2.);
+        assertThat(pair.left instanceof String).isEqualTo(__);
+        assertThat(pair.right instanceof Double).isEqualTo(__);
+    }
+
+    interface Animal {
+        String noise();
+    }
+
+    class Dog implements Animal {
+        @Override
+        public String noise() {
+            return "Woof!";
+        }
+    }
+
+    class Puppy extends Dog {
+        @Override
+        public String noise() {
+            return "Squeak!";
+        }
+    }
+
+    class Cat implements Animal {
+        @Override
+        public String noise() {
+            return "Meow!";
+        }
+    }
+
+    class AnimalList<T extends Animal> {
+
+        private final T[] values;
+
+        AnimalList(final T... values) {
+            this.values = values;
+        }
+
+        T get(final int index) {
+            return values[index];
+        }
+
+        String noises() {
+            return stream(values).map(Animal::noise).collect(joining(", "));
+        }
+    }
+
+    String invariantAnimalNoises(final AnimalList<Animal> animals) {
+        return animals.noises();
+    }
+
+    String covariantAnimalNoises(final AnimalList<? extends Animal> animals) {
+        return animals.noises();
+    }
+
+    String covariantDogNoises(final AnimalList<? extends Dog> dogs) {
+        return dogs.noises();
+    }
+
+    String covariantPuppyNoises(final AnimalList<? extends Puppy> puppies) {
+        return puppies.noises();
+    }
+
+    String covariantCatNoises(final AnimalList<? extends Cat> cats) {
+        return cats.noises();
+    }
+
+    String contravariantAnimalNoises(final AnimalList<? super Animal> animals) {
+        return animals.noises();
+    }
+
+    String contravariantDogNoises(final AnimalList<? super Dog> dogs) {
+        return dogs.noises();
+    }
+
+    String contravariantPuppyNoises(final AnimalList<? super Puppy> puppies) {
+        return puppies.noises();
+    }
+
+    String contravariantCatNoises(final AnimalList<? super Cat> cats) {
+        return cats.noises();
+    }
+
+    @Koan
+    void what_are_the_variances_of_animal() {
+        AnimalList<Animal> animals = new AnimalList<>(new Dog(), new Puppy(), new Cat());
+
+        // Try to uncomment each line sequentially. Does it compile? Why?
+        String noises = (String) __;
+        // String noises = invariantAnimalNoises(animals);
+        // String noises = covariantAnimalNoises(animals);
+        // String noises = covariantDogNoises(animals);
+        // String noises = covariantPuppyNoises(animals);
+        // String noises = covariantCatNoises(animals);
+        // String noises = contravariantAnimalNoises(animals);
+        // String noises = contravariantDogNoises(animals);
+        // String noises = contravariantPuppyNoises(animals);
+        // String noises = contravariantCatNoises(animals);
+
+        assertThat(noises).isEqualTo("Woof!, Squeak!, Meow!");
+    }
+
+    @Koan
+    void what_are_the_variances_of_dog() {
+        AnimalList<Dog> dogs = new AnimalList<>(new Dog(), new Puppy());
+
+        // Try to uncomment each line sequentially. Does it compile? Why?
+        String noises = (String) __;
+        // String noises = invariantAnimalNoises(dogs);
+        // String noises = covariantAnimalNoises(dogs);
+        // String noises = covariantDogNoises(dogs);
+        // String noises = covariantPuppyNoises(dogs);
+        // String noises = covariantCatNoises(dogs);
+        // String noises = contravariantAnimalNoises(dogs);
+        // String noises = contravariantDogNoises(dogs);
+        // String noises = contravariantPuppyNoises(dogs);
+        // String noises = contravariantCatNoises(dogs);
+
+        assertThat(noises).isEqualTo("Woof!, Squeak!");
+    }
+
+    @Koan
+    void what_are_the_variances_of_puppy() {
+        AnimalList<Puppy> puppies = new AnimalList<>(new Puppy());
+
+        // Try to uncomment each line sequentially. Does it compile? Why?
+        String noises = (String) __;
+        // String noises = invariantAnimalNoises(puppies);
+        // String noises = covariantAnimalNoises(puppies);
+        // String noises = covariantDogNoises(puppies);
+        // String noises = covariantPuppyNoises(puppies);
+        // String noises = covariantCatNoises(puppies);
+        // String noises = contravariantAnimalNoises(puppies);
+        // String noises = contravariantDogNoises(puppies);
+        // String noises = contravariantPuppyNoises(puppies);
+        // String noises = contravariantCatNoises(puppies);
+
+        assertThat(noises).isEqualTo("Squeak!");
+    }
+
+    @Koan
+    void what_are_the_variances_of_cat() {
+        AnimalList<Cat> cats = new AnimalList<>(new Cat());
+
+        // Try to uncomment each line sequentially. Does it compile? Why?
+        String noises = (String) __;
+        // String noises = invariantAnimalNoises(cats);
+        // String noises = covariantAnimalNoises(cats);
+        // String noises = covariantDogNoises(cats);
+        // String noises = covariantPuppyNoises(cats);
+        // String noises = covariantCatNoises(cats);
+        // String noises = contravariantAnimalNoises(cats);
+        // String noises = contravariantDogNoises(cats);
+        // String noises = contravariantPuppyNoises(cats);
+        // String noises = contravariantCatNoises(cats);
+
+        assertThat(noises).isEqualTo("Meow!");
     }
 }
