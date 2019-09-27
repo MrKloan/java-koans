@@ -8,9 +8,8 @@ import static io.fries.koans.KoanAssert.assertThat;
 @SuppressWarnings("all")
 class EnumsKoans {
 
-    @Koan
-    void enums_with_attributes() {
-        assertThat(HexadecimalColors.BLUE.hexadecimalValue > HexadecimalColors.RED.hexadecimalValue).isEqualTo(__);
+    enum Colors {
+        RED, GREEN, BLUE
     }
 
     @Koan
@@ -40,8 +39,8 @@ class EnumsKoans {
     }
 
     @Koan
-    void enums_with_methods() {
-        assertThat(MixableColors.RED.mix(MixableColors.BLUE)).isEqualTo(__);
+    void enums_with_attributes() {
+        assertThat(HexadecimalColors.BLUE.hexadecimalValue > HexadecimalColors.RED.hexadecimalValue).isEqualTo(__);
     }
 
     enum MixableColors {
@@ -58,7 +57,8 @@ class EnumsKoans {
         }
     }
 
-    enum Colors {
-        RED, GREEN, BLUE
+    @Koan
+    void enums_with_methods() {
+        assertThat(MixableColors.RED.mix(MixableColors.BLUE)).isEqualTo(__);
     }
 }
