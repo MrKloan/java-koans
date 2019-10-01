@@ -38,7 +38,7 @@ class StaticKoans {
     }
 
     @Koan
-    void a_static_member_can_be_referenced_directly_by_its_parent() {
+    void a_static_member_can_be_referenced_directly() {
         assertThat(x).isEqualTo(__);
     }
 
@@ -46,5 +46,46 @@ class StaticKoans {
     void a_method_cannot_declare_static_variables() {
         int z = 1; // Try to declare this variable 'static'. Does it compile? Why?
         assertThat(z).isEqualTo(__);
+    }
+
+    static class WithStaticBlock {
+        static int x;
+
+        static {
+            x = 3;
+        }
+    }
+
+    @Koan
+    void the_static_block_is_called_once_when_the_class_is_intialized() {
+        assertThat(WithStaticBlock.x).isEqualTo(__);
+    }
+
+    static class WithStaticValueAndStaticBlock {
+        static int x = 3;
+
+        static {
+            x += 5;
+        }
+    }
+
+    @Koan
+    void the_static_block_is_called_after_static_attributes_are_initialized() {
+        assertThat(WithStaticValueAndStaticBlock.x).isEqualTo(__);
+    }
+
+    static class WithNonStaticBlock {
+        static int x = 3;
+
+        {
+            x += 5;
+        }
+    }
+
+    @Koan
+    void the_non_static_block_is_called_each_time_an_instance_of_the_class_is_initialized() {
+        assertThat(new WithNonStaticBlock().x).isEqualTo(__);
+        assertThat(new WithNonStaticBlock().x).isEqualTo(__);
+        assertThat(new WithNonStaticBlock().x).isEqualTo(__);
     }
 }
