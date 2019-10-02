@@ -6,15 +6,13 @@ this project.
 
 Credit goes to:
 * https://github.com/matyb/java-koans/
-* https://github.com/boyko11/java8-cojug-koans/
+* https://github.com/konohiroaki/java8-code-kata/
 
 ## Backlog
 
 ### Collections
 * Collections
 * Comparable
-* Stream API
-* Optional API
 
 ### Time
 * Time API
