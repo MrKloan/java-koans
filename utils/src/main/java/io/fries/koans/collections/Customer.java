@@ -1,6 +1,7 @@
 package io.fries.koans.collections;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Customer {
 
@@ -30,5 +31,21 @@ public class Customer {
 
     public List<Item> getWantsToBuy() {
         return wantsToBuy;
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        final Customer customer = (Customer) o;
+        return Objects.equals(name, customer.name) &&
+                Objects.equals(age, customer.age) &&
+                Objects.equals(budget, customer.budget) &&
+                Objects.equals(wantsToBuy, customer.wantsToBuy);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age, budget, wantsToBuy);
     }
 }
