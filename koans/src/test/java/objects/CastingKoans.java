@@ -15,9 +15,9 @@ class CastingKoans {
         long b = 10;
         Object c = a + b;
 
-        assertThat(c).isEqualTo(__);
-        assertThat(c instanceof Integer).isEqualTo(__);
-        assertThat(c instanceof Long).isEqualTo(__);
+        assertThat(c).isEqualTo(16);
+        assertThat(c instanceof Integer).isEqualTo(false);
+        assertThat(c instanceof Long).isEqualTo(true);
     }
 
     @Koan
@@ -25,7 +25,7 @@ class CastingKoans {
         long a = 2147483648L;
         int b = (int) a;
 
-        assertThat(b).isEqualTo(__);
+        assertThat(b).isEqualTo(-2147483648);
     }
 
     @Koan
@@ -34,7 +34,7 @@ class CastingKoans {
         int b = Integer.MAX_VALUE;
         long c = a + b;
 
-        assertThat(c).isEqualTo(__);
+        assertThat(c).isEqualTo(-2147483648L);
     }
 
     interface Sleepable {
@@ -64,10 +64,10 @@ class CastingKoans {
         Child child = new Child();
         Parent parent = child;
 
-        assertThat(child instanceof Child).isEqualTo(__);
-        assertThat(parent instanceof Child).isEqualTo(__);
-        assertThat(parent instanceof Parent).isEqualTo(__);
-        assertThat(parent instanceof Grandparent).isEqualTo(__);
+        assertThat(child instanceof Child).isEqualTo(true);
+        assertThat(parent instanceof Child).isEqualTo(true);
+        assertThat(parent instanceof Parent).isEqualTo(true);
+        assertThat(parent instanceof Grandparent).isEqualTo(true);
     }
 
     @Koan
