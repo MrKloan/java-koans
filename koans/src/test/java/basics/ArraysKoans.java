@@ -35,7 +35,7 @@ class ArraysKoans {
         int[] firstArray = new int[]{0};
         int[] secondArray = new int[]{0};
 
-        assertThat(Arrays.equals(firstArray, secondArray)).isEqualTo(__);
+        assertThat(Arrays.equals(firstArray, secondArray)).isEqualTo(true);
     }
 
     @Koan
