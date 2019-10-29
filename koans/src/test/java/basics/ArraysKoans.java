@@ -12,22 +12,22 @@ class ArraysKoans {
 
     @Koan
     void arrays_do_not_consider_elements_when_evaluating_equality() {
-        assertThat(new int[]{1}.equals(new int[]{1})).isEqualTo(__);
+        assertThat(new int[]{1}.equals(new int[]{1})).isEqualTo(false);
     }
 
     @Koan
     void thus_a_clone_of_an_array_is_not_equal_to_its_original() {
         int[] original = new int[]{1};
 
-        assertThat(original.equals(original.clone())).isEqualTo(__);
+        assertThat(original.equals(original.clone())).isEqualTo(false);
     }
 
     @Koan
     void arrays_hash_code_does_not_consider_elements() {
         int[] firstArray = new int[]{0};
         int[] secondArray = new int[]{0};
-
-        assertThat(Integer.valueOf(firstArray.hashCode()).equals(secondArray.hashCode())).isEqualTo(__);
+        // System.out.println(Integer.valueOf(firstArray.hashCode()));
+        assertThat(Integer.valueOf(firstArray.hashCode()).equals(secondArray.hashCode())).isEqualTo(false);
     }
 
     @Koan

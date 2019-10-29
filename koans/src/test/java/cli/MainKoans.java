@@ -17,6 +17,7 @@ class MainKoans {
         // System.out is the standard output stream of any Java program.
         System.out.println("This is a standard output message: " + programArguments);
 
+
         // System.err is the standard error stream of any Java program.
         System.err.println("This is a standard error message: " + programArguments);
 
