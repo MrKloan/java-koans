@@ -70,7 +70,7 @@ class ArraysKoans {
         final boolean[] oneBoolean = new boolean[]{false};
         oneBoolean[0] = true;
 
-        assertThat(oneBoolean[0]).isEqualTo(__);
+        assertThat(oneBoolean[0]).isEqualTo(true);
     }
 
     @Koan
