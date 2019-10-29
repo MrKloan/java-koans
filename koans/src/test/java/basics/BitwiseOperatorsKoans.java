@@ -16,7 +16,7 @@ class BitwiseOperatorsKoans {
             i = i + 1;
         }
 
-        assertThat(i).isEqualTo(__);
+        assertThat(i).isEqualTo(3);
     }
 
     @Koan
@@ -26,7 +26,7 @@ class BitwiseOperatorsKoans {
         if (true && (i < -28)) {
             i = i + 1;
         }
-        assertThat(i).isEqualTo(__);
+        assertThat(i).isEqualTo(1);
     }
 
     @Koan
@@ -38,7 +38,7 @@ class BitwiseOperatorsKoans {
             i = i + 1;
         }
 
-        assertThat(i).isEqualTo(__);
+        assertThat(i).isEqualTo(2);
     }
 
     @Koan
@@ -50,8 +50,8 @@ class BitwiseOperatorsKoans {
             i++;
         }
 
-        assertThat(a).isEqualTo(__);
-        assertThat(i).isEqualTo(__);
+        assertThat(a).isEqualTo(true);
+        assertThat(i).isEqualTo(2);
     }
 
     @Koan
@@ -60,7 +60,7 @@ class BitwiseOperatorsKoans {
 
         rightShift = rightShift >> 1;
 
-        assertThat(rightShift).isEqualTo(__);
+        assertThat(rightShift).isEqualTo(4);
     }
 
     @Koan
@@ -69,14 +69,18 @@ class BitwiseOperatorsKoans {
 
         leftShift = leftShift << 1;
 
-        assertThat(leftShift).isEqualTo(__);
+        assertThat(leftShift).isEqualTo(0x00000000);
     }
 
     @Koan
     void bit_shifting_right_unsigned() {
         int rightShiftNegativeStaysNegative = 0x80000000;
+        System.out.println(rightShiftNegativeStaysNegative);
         rightShiftNegativeStaysNegative = rightShiftNegativeStaysNegative >> 4;
-        assertThat(rightShiftNegativeStaysNegative).isEqualTo(__);
+
+        System.out.println(rightShiftNegativeStaysNegative);
+        System.out.println(0x00008000);
+        assertThat(rightShiftNegativeStaysNegative).isEqualTo(0x80000000);
 
         int unsignedRightShift = 0x80000000;
         unsignedRightShift >>>= 4;
