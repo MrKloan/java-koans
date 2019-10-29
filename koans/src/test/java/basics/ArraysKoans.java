@@ -58,7 +58,11 @@ class ArraysKoans {
     void arrays_can_throw_an_out_of_bound_exception() {
         final int[] array = new int[]{1};
 
-        assertThat(array[1]).isEqualTo(__);
+        try {
+            assertThat(array[1]).isEqualTo(__);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            e.printStackTrace();
+        }
     }
 
     @Koan
