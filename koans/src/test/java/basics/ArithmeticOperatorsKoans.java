@@ -8,53 +8,53 @@ import static io.fries.koans.KoanAssert.assertThat;
 class ArithmeticOperatorsKoans {
 
     @Koan
-    void simple_operations() {
+    void simple_operations() { /* PASSED */
         assertThat(1).isEqualTo(1);
-        assertThat(1 + 1).isEqualTo(1+1);
-        assertThat(2 + 3 * 4).isEqualTo(2+3*4);
-        assertThat((2 + 3) * 4).isEqualTo(__);
-        assertThat(2 * 3 + 4).isEqualTo(__);
-        assertThat(2 - 3 + 4).isEqualTo(__);
-        assertThat(2 + 4 / 2).isEqualTo(__);
-        assertThat((2 + 4) / 2).isEqualTo(__);
+        assertThat(1 + 1).isEqualTo(2);
+        assertThat(2 + 3 * 4).isEqualTo(14);
+        assertThat((2 + 3) * 4).isEqualTo(20);
+        assertThat(2 * 3 + 4).isEqualTo(10);
+        assertThat(2 - 3 + 4).isEqualTo(3);
+        assertThat(2 + 4 / 2).isEqualTo(4);
+        assertThat((2 + 4) / 2).isEqualTo(3);
     }
 
     @Koan
-    void more_operations() {
-        assertThat(1 / 2).isEqualTo(__);
-        assertThat(3 / 2).isEqualTo(__);
-        assertThat(1 % 2).isEqualTo(__);
-        assertThat(3 % 2).isEqualTo(__);
+    void more_operations() { /* PASSED */
+        assertThat(1 / 2).isEqualTo(0);
+        assertThat(3 / 2).isEqualTo(1);
+        assertThat(1 % 2).isEqualTo(1);
+        assertThat(3 % 2).isEqualTo(1);
     }
 
     @Koan
-    void decrement_variable() {
+    void decrement_variable() { /* PASSED */
         int i = 1;
-        assertThat(--i).isEqualTo(__);
-        assertThat(i).isEqualTo(__);
-        assertThat(i--).isEqualTo(__);
-        assertThat(i).isEqualTo(__);
+        assertThat(--i).isEqualTo(0);
+        assertThat(i).isEqualTo(0);
+        assertThat(i--).isEqualTo(0);
+        assertThat(i).isEqualTo(-1);
     }
 
     @Koan
-    void increment_variable() {
+    void increment_variable() { /* PASSED */
         int i = 1;
-        assertThat(++i).isEqualTo(__);
-        assertThat(i).isEqualTo(__);
-        assertThat(i++).isEqualTo(__);
-        assertThat(i).isEqualTo(__);
+        assertThat(++i).isEqualTo(2);
+        assertThat(i).isEqualTo(2);
+        assertThat(i++).isEqualTo(2);
+        assertThat(i).isEqualTo(3);
     }
 
     @Koan
-    void in_place_operations() {
+void in_place_operations() { /* PASSED */
         int i = 3;
         i += 2;
-        assertThat(i).isEqualTo(__);
+        assertThat(i).isEqualTo(5);
         i -= 1;
-        assertThat(i).isEqualTo(__);
+        assertThat(i).isEqualTo(4);
         i *= 2;
-        assertThat(i).isEqualTo(__);
+        assertThat(i).isEqualTo(8);
         i /= 2;
-        assertThat(i).isEqualTo(__);
+        assertThat(i).isEqualTo(4);
     }
 }

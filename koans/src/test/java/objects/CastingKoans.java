@@ -15,8 +15,8 @@ class CastingKoans {
         long b = 10;
         Object c = a + b;
 
-        assertThat(c).isEqualTo(__);
-        assertThat(c instanceof Integer).isEqualTo(__);
+        assertThat(c).isEqualTo(16);
+        assertThat(c instanceof Integer).isEqualTo(c);
         assertThat(c instanceof Long).isEqualTo(__);
     }
 
