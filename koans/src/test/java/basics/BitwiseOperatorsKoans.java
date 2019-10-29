@@ -26,7 +26,7 @@ class BitwiseOperatorsKoans {
         if (true && (i < -28)) {
             i = i + 1;
         }
-        assertThat(i).isEqualTo(__);
+        assertThat(i).isEqualTo(1);
     }
 
     @Koan
