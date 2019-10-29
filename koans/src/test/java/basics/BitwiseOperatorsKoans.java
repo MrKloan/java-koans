@@ -50,8 +50,8 @@ class BitwiseOperatorsKoans {
             i++;
         }
 
-        assertThat(a).isEqualTo(__);
-        assertThat(i).isEqualTo(__);
+        assertThat(a).isEqualTo(true);
+        assertThat(i).isEqualTo(2);
     }
 
     @Koan
