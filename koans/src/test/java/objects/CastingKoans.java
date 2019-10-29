@@ -14,10 +14,10 @@ class CastingKoans {
         int a = 6;
         long b = 10;
         Object c = a + b;
+        assertThat(c).isEqualTo((long)16);
+        assertThat(c instanceof Integer).isEqualTo(false);
+        assertThat(c instanceof Long).isEqualTo(true);
 
-        assertThat(c).isEqualTo(__);
-        assertThat(c instanceof Integer).isEqualTo(__);
-        assertThat(c instanceof Long).isEqualTo(__);
     }
 
     @Koan
@@ -25,7 +25,7 @@ class CastingKoans {
         long a = 2147483648L;
         int b = (int) a;
 
-        assertThat(b).isEqualTo(__);
+        assertThat(b).isEqualTo((int)a);
     }
 
     @Koan
@@ -34,7 +34,7 @@ class CastingKoans {
         int b = Integer.MAX_VALUE;
         long c = a + b;
 
-        assertThat(c).isEqualTo(__);
+        assertThat(c).isEqualTo((long)(a+b));
     }
 
     interface Sleepable {
@@ -64,10 +64,10 @@ class CastingKoans {
         Child child = new Child();
         Parent parent = child;
 
-        assertThat(child instanceof Child).isEqualTo(__);
-        assertThat(parent instanceof Child).isEqualTo(__);
-        assertThat(parent instanceof Parent).isEqualTo(__);
-        assertThat(parent instanceof Grandparent).isEqualTo(__);
+        assertThat(child instanceof Child).isEqualTo(true);
+        assertThat(parent instanceof Child).isEqualTo(true);
+        assertThat(parent instanceof Parent).isEqualTo(true);
+        assertThat(parent instanceof Grandparent).isEqualTo(true);
     }
 
     @Koan
@@ -75,7 +75,7 @@ class CastingKoans {
         Child child = new Child();
         Parent parent = child;
 
-        assertThat(parent.complain()).isEqualTo(__);
+        assertThat(parent.complain()).isEqualTo(child.complain());
     }
 
     @Koan
@@ -84,9 +84,9 @@ class CastingKoans {
         Parent parentReference = (Parent) child;
         Child childReference = (Child) parentReference;
 
-        assertThat(childReference instanceof Child).isEqualTo(__);
-        assertThat(childReference instanceof Parent).isEqualTo(__);
-        assertThat(childReference instanceof Grandparent).isEqualTo(__);
+        assertThat(childReference instanceof Child).isEqualTo(true);
+        assertThat(childReference instanceof Parent).isEqualTo(true);
+        assertThat(childReference instanceof Grandparent).isEqualTo(true);
     }
 
     @Koan
@@ -94,13 +94,13 @@ class CastingKoans {
         Grandparent child = new Child();
         Parent parent = (Child) child;
 
-        assertThat(parent.complain()).isEqualTo(__);
+        assertThat(parent.complain()).isEqualTo(((Child) child).complain());
     }
 
     @Koan
     void class_casting() {
         try {
-            Object o = new Object(); // __
+            Object o = new Grandparent(); // __
             ((Sleepable) o).sleep();
         } catch (ClassCastException e) {
             fail("Object does not implement Sleepable, maybe one of the other classes do?");

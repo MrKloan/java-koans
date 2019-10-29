@@ -55,7 +55,7 @@ class TypeInferenceKoans {
     @Koan
     void use_final_var_for_immutable_type_inference() {
         final var x = 7;
-        // x = 12; // Try to uncomment this line. Does it compile? Why?
+        // x = 12; // Try to uncomment this line. Does it compile? Why? because it's a final value
 
         assertThat(x).isEqualTo(__);
     }
@@ -63,7 +63,7 @@ class TypeInferenceKoans {
     @Koan
     void var_cannot_be_used_as_an_attribute_type() {
         class ValueHolder {
-            int value = 3; // Try to use 'var' instead of 'int'. Does it compile? Why?
+            int value = 3; // Try to use 'var' instead of 'int'. Does it compile? Why? because it needs a type
         }
 
         var valueHolder = new ValueHolder();
