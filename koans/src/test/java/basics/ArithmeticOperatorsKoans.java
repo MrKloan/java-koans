@@ -30,10 +30,10 @@ class ArithmeticOperatorsKoans {
     @Koan
     void decrement_variable() {
         int i = 1;
-        assertThat(--i).isEqualTo(__);
-        assertThat(i).isEqualTo(__);
-        assertThat(i--).isEqualTo(__);
-        assertThat(i).isEqualTo(__);
+        assertThat(--i).isEqualTo(0);
+        assertThat(i).isEqualTo(0);
+        assertThat(i--).isEqualTo(0);
+        assertThat(i).isEqualTo(-1);
     }
 
     @Koan
