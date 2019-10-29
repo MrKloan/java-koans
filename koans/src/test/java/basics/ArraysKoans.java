@@ -82,6 +82,6 @@ class ArraysKoans {
     void use_the_arrays_to_string_helper_method_to_print_the_content_of_an_array() {
         final int[] oddNumbers = {1, 3, 5, 7, 9};
 
-        assertThat(Arrays.toString(oddNumbers)).isEqualTo(__);
+        assertThat(Arrays.toString(oddNumbers)).isEqualTo("[1, 3, 5, 7, 9]");
     }
 }
