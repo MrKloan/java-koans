@@ -16,8 +16,8 @@ class EnumsKoans {
     void basic_enums() {
         Colors blue = Colors.BLUE;
 
-        assertThat(blue == Colors.BLUE).isEqualTo(__);
-        assertThat(blue == Colors.RED).isEqualTo(__);
+        assertThat(blue == Colors.BLUE).isEqualTo(Colors.BLUE);
+        assertThat(blue == Colors.RED).isEqualTo(Colors.RED);
         assertThat(blue instanceof Colors).isEqualTo(__);
     }
 
@@ -25,7 +25,7 @@ class EnumsKoans {
     void basic_enum_access() {
         Colors[] colorArray = Colors.values();
 
-        assertThat(colorArray[2]).isEqualTo(__);
+        assertThat(colorArray[2]).isEqualTo(Colors.BLUE);
     }
 
     enum HexadecimalColors {

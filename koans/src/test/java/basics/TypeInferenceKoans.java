@@ -68,6 +68,6 @@ class TypeInferenceKoans {
         }
 
         var valueHolder = new ValueHolder();
-        assertThat(valueHolder.value).isEqualTo(__);
+        assertThat(valueHolder.value).isEqualTo(3);
     }
 }
