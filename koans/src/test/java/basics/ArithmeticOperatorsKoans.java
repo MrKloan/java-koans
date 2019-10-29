@@ -9,8 +9,8 @@ class ArithmeticOperatorsKoans {
 
     @Koan
     void simple_operations() {
-        assertThat(1).isEqualTo(__);
-        assertThat(1 + 1).isEqualTo(__);
+        assertThat(1).isEqualTo(1);
+        assertThat(1 + 1).isEqualTo(2);
         assertThat(2 + 3 * 4).isEqualTo(__);
         assertThat((2 + 3) * 4).isEqualTo(__);
         assertThat(2 * 3 + 4).isEqualTo(__);
