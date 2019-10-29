@@ -69,7 +69,7 @@ class BitwiseOperatorsKoans {
 
         leftShift = leftShift << 1;
 
-        assertThat(leftShift).isEqualTo(__);
+        assertThat(leftShift).isEqualTo(0);
     }
 
     @Koan
