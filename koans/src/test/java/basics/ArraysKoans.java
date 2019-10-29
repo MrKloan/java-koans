@@ -50,8 +50,8 @@ class ArraysKoans {
     void arrays_are_indexed_at_0() {
         int[] integers = new int[]{1, 2};
 
-        assertThat(integers[0]).isEqualTo(__);
-        assertThat(integers[1]).isEqualTo(__);
+        assertThat(integers[0]).isEqualTo(1);
+        assertThat(integers[1]).isEqualTo(2);
     }
 
     @Koan
