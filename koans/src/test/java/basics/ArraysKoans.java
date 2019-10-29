@@ -19,7 +19,7 @@ class ArraysKoans {
     void thus_a_clone_of_an_array_is_not_equal_to_its_original() {
         int[] original = new int[]{1};
 
-        assertThat(original.equals(original.clone())).isEqualTo(__);
+        assertThat(original.equals(original.clone())).isEqualTo(false);
     }
 
     @Koan
