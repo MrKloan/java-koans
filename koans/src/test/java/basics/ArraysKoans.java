@@ -12,14 +12,14 @@ class ArraysKoans {
 
     @Koan
     void arrays_do_not_consider_elements_when_evaluating_equality() {
-        assertThat(new int[]{1}.equals(new int[]{1})).isEqualTo(__);
+        assertThat(new int[]{1}.equals(new int[]{1})).isEqualTo(false);
     }
 
     @Koan
     void thus_a_clone_of_an_array_is_not_equal_to_its_original() {
         int[] original = new int[]{1};
 
-        assertThat(original.equals(original.clone())).isEqualTo(__);
+        assertThat(original.equals(original.clone())).isEqualTo(false);
     }
 
     @Koan
@@ -27,7 +27,7 @@ class ArraysKoans {
         int[] firstArray = new int[]{0};
         int[] secondArray = new int[]{0};
 
-        assertThat(Integer.valueOf(firstArray.hashCode()).equals(secondArray.hashCode())).isEqualTo(__);
+        assertThat(Integer.valueOf(firstArray.hashCode()).equals(secondArray.hashCode())).isEqualTo(false);
     }
 
     @Koan
@@ -35,7 +35,7 @@ class ArraysKoans {
         int[] firstArray = new int[]{0};
         int[] secondArray = new int[]{0};
 
-        assertThat(Arrays.equals(firstArray, secondArray)).isEqualTo(__);
+        assertThat(Arrays.equals(firstArray, secondArray)).isEqualTo(true);
     }
 
     @Koan
@@ -43,15 +43,15 @@ class ArraysKoans {
         int[] firstArray = new int[]{0};
         int[] secondArray = new int[]{0};
 
-        assertThat(Integer.valueOf(Arrays.hashCode(firstArray)).equals(Arrays.hashCode(secondArray))).isEqualTo(__);
+        assertThat(Integer.valueOf(Arrays.hashCode(firstArray)).equals(Arrays.hashCode(secondArray))).isEqualTo(true);
     }
 
     @Koan
     void arrays_are_indexed_at_0() {
         int[] integers = new int[]{1, 2};
 
-        assertThat(integers[0]).isEqualTo(__);
-        assertThat(integers[1]).isEqualTo(__);
+        assertThat(integers[0]).isEqualTo(1);
+        assertThat(integers[1]).isEqualTo(2);
     }
 
     @Koan
@@ -66,7 +66,7 @@ class ArraysKoans {
         final boolean[] oneBoolean = new boolean[]{false};
         oneBoolean[0] = true;
 
-        assertThat(oneBoolean[0]).isEqualTo(__);
+        assertThat(oneBoolean[0]).isEqualTo(true);
     }
 
     @Koan
