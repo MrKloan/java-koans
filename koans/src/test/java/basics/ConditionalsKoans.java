@@ -16,7 +16,7 @@ class ConditionalsKoans {
             x++;
         }
 
-        assertThat(x).isEqualTo(__);
+        assertThat(x).isEqualTo(2);
     }
 
     @Koan
@@ -30,7 +30,7 @@ class ConditionalsKoans {
             x--;
         }
 
-        assertThat(x).isEqualTo(__);
+        assertThat(x).isEqualTo(0);
     }
 
     @Koan
@@ -47,7 +47,7 @@ class ConditionalsKoans {
             x--;
         }
 
-        assertThat(x).isEqualTo(__);
+        assertThat(x).isEqualTo(10);
     }
 
     @Koan
