@@ -12,7 +12,7 @@ class ArraysKoans {
 
     @Koan
     void arrays_do_not_consider_elements_when_evaluating_equality() {
-        assertThat(new int[]{1}.equals(new int[]{1})).isEqualTo(__);
+        assertThat(new int[]{1}.equals(new int[]{1})).isEqualTo(false);
     }
 
     @Koan
@@ -27,7 +27,7 @@ class ArraysKoans {
         int[] firstArray = new int[]{0};
         int[] secondArray = new int[]{0};
 
-        assertThat(Integer.valueOf(firstArray.hashCode()).equals(secondArray.hashCode())).isEqualTo(__);
+        assertThat(Integer.valueOf(firstArray.hashCode()).equals(secondArray.hashCode())).isEqualTo(false);
     }
 
     @Koan
@@ -35,7 +35,7 @@ class ArraysKoans {
         int[] firstArray = new int[]{0};
         int[] secondArray = new int[]{0};
 
-        assertThat(Arrays.equals(firstArray, secondArray)).isEqualTo(__);
+        assertThat(Arrays.equals(firstArray, secondArray)).isEqualTo(true);
     }
 
     @Koan
@@ -58,7 +58,7 @@ class ArraysKoans {
     void arrays_can_throw_an_out_of_bound_exception() {
         final int[] array = new int[]{1};
 
-        assertThat(array[1]).isEqualTo(__);
+        assertThat(array[1]).isEqualTo(null);
     }
 
     @Koan
@@ -66,7 +66,7 @@ class ArraysKoans {
         final boolean[] oneBoolean = new boolean[]{false};
         oneBoolean[0] = true;
 
-        assertThat(oneBoolean[0]).isEqualTo(__);
+        assertThat(oneBoolean[0]).isEqualTo(true);
     }
 
     @Koan
