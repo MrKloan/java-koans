@@ -43,7 +43,7 @@ class ArraysKoans {
         int[] firstArray = new int[]{0};
         int[] secondArray = new int[]{0};
 
-        assertThat(Integer.valueOf(Arrays.hashCode(firstArray)).equals(Arrays.hashCode(secondArray))).isEqualTo(__);
+        assertThat(Integer.valueOf(Arrays.hashCode(firstArray)).equals(Arrays.hashCode(secondArray))).isEqualTo(true);
     }
 
     @Koan
