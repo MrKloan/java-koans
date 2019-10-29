@@ -49,12 +49,12 @@ class ArithmeticOperatorsKoans {
     void in_place_operations() {
         int i = 3;
         i += 2;
-        assertThat(i).isEqualTo(__);
+        assertThat(i).isEqualTo(5);
         i -= 1;
-        assertThat(i).isEqualTo(__);
+        assertThat(i).isEqualTo(4);
         i *= 2;
-        assertThat(i).isEqualTo(__);
+        assertThat(i).isEqualTo(8);
         i /= 2;
-        assertThat(i).isEqualTo(__);
+        assertThat(i).isEqualTo(4);
     }
 }
