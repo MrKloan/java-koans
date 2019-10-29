@@ -71,7 +71,7 @@ class LoopsKoans {
             result += i + " " + j + " ";
         }
 
-        assertThat(result).isEqualTo(__);
+        assertThat(result).isEqualTo("0 10 1 9 2 8 3 7 4 6 ");
     }
 
     @Koan
@@ -85,7 +85,9 @@ class LoopsKoans {
             result += " - ";
         }
 
-        assertThat(result).isEqualTo(__);
+        assertThat(result).isEqualTo("(0, 0) (0, 1) (0, 2)  - "
+                                    +"(1, 0) (1, 1) (1, 2)  - "
+                                    +"(2, 0) (2, 1) (2, 2)  - ");
     }
 
     @Koan
@@ -97,7 +99,7 @@ class LoopsKoans {
             result += number + " ";
         }
 
-        assertThat(result).isEqualTo(__);
+        assertThat(result).isEqualTo("1 2 3 4 ");
     }
 
     @Koan
@@ -108,7 +110,7 @@ class LoopsKoans {
             result++;
         }
 
-        assertThat(result).isEqualTo(__);
+        assertThat(result).isEqualTo(3);
     }
 
     @Koan
@@ -119,7 +121,7 @@ class LoopsKoans {
             result++;
         } while (false);
 
-        assertThat(result).isEqualTo(__);
+        assertThat(result).isEqualTo(1);
     }
 
     @Koan
@@ -130,7 +132,7 @@ class LoopsKoans {
             result++;
         } while (result < 3);
 
-        assertThat(result).isEqualTo(__);
+        assertThat(result).isEqualTo(3);
     }
 
     @Koan
@@ -145,7 +147,7 @@ class LoopsKoans {
             count++;
         }
 
-        assertThat(count).isEqualTo(__);
+        assertThat(count).isEqualTo(1);
     }
 
     @Koan
@@ -161,7 +163,7 @@ class LoopsKoans {
             }
         }
 
-        assertThat(count).isEqualTo(__);
+        assertThat(count).isEqualTo(2);
     }
 
     @Koan

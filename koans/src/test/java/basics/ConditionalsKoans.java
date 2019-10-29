@@ -16,7 +16,7 @@ class ConditionalsKoans {
             x++;
         }
 
-        assertThat(x).isEqualTo(__);
+        assertThat(x).isEqualTo(2);
     }
 
     @Koan
@@ -30,7 +30,7 @@ class ConditionalsKoans {
             x--;
         }
 
-        assertThat(x).isEqualTo(__);
+        assertThat(x).isEqualTo(0);
     }
 
     @Koan
@@ -47,7 +47,7 @@ class ConditionalsKoans {
             x--;
         }
 
-        assertThat(x).isEqualTo(__);
+        assertThat(x).isEqualTo(10);
     }
 
     @Koan
@@ -63,7 +63,7 @@ class ConditionalsKoans {
         else
             x--;
 
-        assertThat(x).isEqualTo(__);
+        assertThat(x).isEqualTo(10);
     }
 
     @Koan
@@ -81,7 +81,7 @@ class ConditionalsKoans {
             x--;
         }
 
-        assertThat(x).isEqualTo(__);
+        assertThat(x).isEqualTo(0);
     }
 
     @Koan
@@ -100,7 +100,7 @@ class ConditionalsKoans {
                 result += "Nothing";
         }
 
-        assertThat(result).isEqualTo(__);
+        assertThat(result).isEqualTo("One");
     }
 
     @Koan
@@ -117,7 +117,7 @@ class ConditionalsKoans {
                 result += "Nothing";
         }
 
-        assertThat(result).isEqualTo(__);
+        assertThat(result).isEqualTo("OneTwoNothing");
     }
 
     @Koan
@@ -134,7 +134,7 @@ class ConditionalsKoans {
                 result += "Two";
         }
 
-        assertThat(result).isEqualTo(__);
+        assertThat(result).isEqualTo("NothingTwo");
     }
 
     @Koan
@@ -151,7 +151,7 @@ class ConditionalsKoans {
                 result += "Nothing";
         }
 
-        assertThat(result).isEqualTo(__);
+        assertThat(result).isEqualTo("Nothing");
     }
 
     @Koan
@@ -167,7 +167,7 @@ class ConditionalsKoans {
                 result += "Nothing";
         }
 
-        assertThat(result).isEqualTo(__);
+        assertThat(result).isEqualTo("The letter 'a'");
     }
 
     class Counter {
