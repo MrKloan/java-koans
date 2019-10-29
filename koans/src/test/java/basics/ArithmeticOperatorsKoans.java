@@ -9,14 +9,14 @@ class ArithmeticOperatorsKoans {
 
     @Koan
     void simple_operations() {
-        assertThat(1).isEqualTo(__);
-        assertThat(1 + 1).isEqualTo(__);
-        assertThat(2 + 3 * 4).isEqualTo(__);
-        assertThat((2 + 3) * 4).isEqualTo(__);
-        assertThat(2 * 3 + 4).isEqualTo(__);
-        assertThat(2 - 3 + 4).isEqualTo(__);
-        assertThat(2 + 4 / 2).isEqualTo(__);
-        assertThat((2 + 4) / 2).isEqualTo(__);
+        assertThat(1).isEqualTo(1);
+        assertThat(1 + 1).isEqualTo(2);
+        assertThat(2 + 3 * 4).isEqualTo(14);
+        assertThat((2 + 3) * 4).isEqualTo(20);
+        assertThat(2 * 3 + 4).isEqualTo(10);
+        assertThat(2 - 3 + 4).isEqualTo(3);
+        assertThat(2 + 4 / 2).isEqualTo(4);
+        assertThat((2 + 4) / 2).isEqualTo(3);
     }
 
     @Koan

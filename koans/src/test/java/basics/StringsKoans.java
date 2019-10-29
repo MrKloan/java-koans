@@ -7,6 +7,7 @@ import java.text.MessageFormat;
 import static io.fries.koans.KoanAssert.__;
 import static io.fries.koans.KoanAssert.assertThat;
 import static org.assertj.core.api.Assertions.fail;
+import static org.assertj.core.api.Assertions.filter;
 
 @SuppressWarnings("all")
 class StringsKoans {
@@ -21,7 +22,7 @@ class StringsKoans {
         String string = new String();
         String empty = "";
 
-        assertThat(string.equals(empty)).isEqualTo(__);
+        assertThat(string.equals(empty)).isEqualTo(true);
     }
 
     @Koan
@@ -29,7 +30,7 @@ class StringsKoans {
         String stringInstance = "zero";
         String stringReference = new String(stringInstance);
 
-        assertThat(stringInstance.equals(stringReference)).isEqualTo(__);
+        assertThat(stringInstance.equals(stringReference)).isEqualTo(true);
     }
 
     @Koan
@@ -37,33 +38,33 @@ class StringsKoans {
         String stringInstance = "zero";
         String stringReference = new String(stringInstance);
 
-        assertThat(stringInstance == stringReference).isEqualTo(__);
+        assertThat(stringInstance == stringReference).isEqualTo(false);
     }
 
     @Koan
     void string_is_empty() {
-        assertThat("".isEmpty()).isEqualTo(__);
-        assertThat("one".isEmpty()).isEqualTo(__);
-        assertThat(new String().isEmpty()).isEqualTo(__);
-        assertThat(new String("").isEmpty()).isEqualTo(__);
-        assertThat(new String("one").isEmpty()).isEqualTo(__);
+        assertThat("".isEmpty()).isEqualTo(true);
+        assertThat("one".isEmpty()).isEqualTo(false);
+        assertThat(new String().isEmpty()).isEqualTo(true);
+        assertThat(new String("").isEmpty()).isEqualTo(true);
+        assertThat(new String("one").isEmpty()).isEqualTo(false);
     }
 
     @Koan
     void string_length() {
-        assertThat("".length()).isEqualTo(__);
-        assertThat("one".length()).isEqualTo(__);
-        assertThat("the number is one".length()).isEqualTo(__);
+        assertThat("".length()).isEqualTo(0);
+        assertThat("one".length()).isEqualTo(3);
+        assertThat("the number is one".length()).isEqualTo(17);
     }
 
     @Koan
     void string_trim() {
-        assertThat("".trim()).isEqualTo(__);
+        assertThat("".trim()).isEqualTo("");
         assertThat("one".trim()).isEqualTo("one");
-        assertThat(" one more time".trim()).isEqualTo(__);
-        assertThat(" one more time         ".trim()).isEqualTo(__);
-        assertThat(" and again\t".trim()).isEqualTo(__);
-        assertThat("\t\t\twhat about now?\t".trim()).isEqualTo(__);
+        assertThat(" one more time".trim()).isEqualTo("one more time");
+        assertThat(" one more time         ".trim()).isEqualTo("one more time");
+        assertThat(" and again\t".trim()).isEqualTo("and again");
+        assertThat("\t\t\twhat about now?\t".trim()).isEqualTo("what about now?");
     }
 
     @Koan
@@ -72,85 +73,85 @@ class StringsKoans {
         String space = " ";
         String two = "two";
 
-        assertThat(one + space + two).isEqualTo(__);
-        assertThat(space + one + two).isEqualTo(__);
-        assertThat(two + space + one).isEqualTo(__);
+        assertThat(one + space + two).isEqualTo("one two");
+        assertThat(space + one + two).isEqualTo(" onetwo");
+        assertThat(two + space + one).isEqualTo("two one");
     }
 
     @Koan
     void string_upper_case() {
         String str = "I am a number one!";
 
-        assertThat(str.toUpperCase()).isEqualTo(__);
+        assertThat(str.toUpperCase()).isEqualTo("I AM A NUMBER ONE!");
     }
 
     @Koan
     void string_lower_case() {
         String str = "I AM a number ONE!";
 
-        assertThat(str.toLowerCase()).isEqualTo(__);
+        assertThat(str.toLowerCase()).isEqualTo("i am a number one!");
     }
 
     @Koan
     void string_compare() {
         String str = "I AM a number ONE!";
 
-        assertThat(str.compareTo("I AM a number ONE!") == 0).isEqualTo(__);
-        assertThat(str.compareTo("I am a number one!") == 0).isEqualTo(__);
-        assertThat(str.compareTo("I AM A NUMBER ONE!") == 0).isEqualTo(__);
+        assertThat(str.compareTo("I AM a number ONE!") == 0).isEqualTo(true);
+        assertThat(str.compareTo("I am a number one!") == 0).isEqualTo(false);
+        assertThat(str.compareTo("I AM A NUMBER ONE!") == 0).isEqualTo(false);
     }
 
     @Koan
     void string_compare_ignore_case() {
         String str = "I AM a number ONE!";
 
-        assertThat(str.compareToIgnoreCase("I AM a number ONE!") == 0).isEqualTo(__);
-        assertThat(str.compareToIgnoreCase("I am a number one!") == 0).isEqualTo(__);
-        assertThat(str.compareToIgnoreCase("I AM A NUMBER ONE!") == 0).isEqualTo(__);
+        assertThat(str.compareToIgnoreCase("I AM a number ONE!") == 0).isEqualTo(true);
+        assertThat(str.compareToIgnoreCase("I am a number one!") == 0).isEqualTo(true);
+        assertThat(str.compareToIgnoreCase("I AM A NUMBER ONE!") == 0).isEqualTo(true);
     }
 
     @Koan
     void string_starts_with() {
-        assertThat("".startsWith("one")).isEqualTo(__);
-        assertThat("one".startsWith("one")).isEqualTo(__);
-        assertThat("one is the number".startsWith("one")).isEqualTo(__);
-        assertThat("ONE is the number".startsWith("one")).isEqualTo(__);
+        assertThat("".startsWith("one")).isEqualTo(false);
+        assertThat("one".startsWith("one")).isEqualTo(true);
+        assertThat("one is the number".startsWith("one")).isEqualTo(true);
+        assertThat("ONE is the number".startsWith("one")).isEqualTo(false);
     }
 
     @Koan
     void string_ends_with() {
-        assertThat("".endsWith("one")).isEqualTo(__);
-        assertThat("one".endsWith("one")).isEqualTo(__);
-        assertThat("the number is one".endsWith("one")).isEqualTo(__);
-        assertThat("the number is two".endsWith("one")).isEqualTo(__);
-        assertThat("the number is One".endsWith("one")).isEqualTo(__);
+        assertThat("".endsWith("one")).isEqualTo(false);
+        assertThat("one".endsWith("one")).isEqualTo(true);
+        assertThat("the number is one".endsWith("one")).isEqualTo(true);
+        assertThat("the number is two".endsWith("one")).isEqualTo(false);
+        assertThat("the number is One".endsWith("one")).isEqualTo(false);
     }
 
     @Koan
     void string_substring() {
         String str = "I AM a number ONE!";
 
-        assertThat(str.substring(0)).isEqualTo(__);
-        assertThat(str.substring(1)).isEqualTo(__);
-        assertThat(str.substring(5)).isEqualTo(__);
-        assertThat(str.substring(14, 17)).isEqualTo(__);
-        assertThat(str.substring(7, str.length())).isEqualTo(__);
+        assertThat(str.substring(0)).isEqualTo("I AM a number ONE!");
+        assertThat(str.substring(1)).isEqualTo(" AM a number ONE!");
+        assertThat(str.substring(5)).isEqualTo("a number ONE!");
+        assertThat(str.substring(14, 17)).isEqualTo("ONE");
+        assertThat(str.substring(7, str.length())).isEqualTo("number ONE!");
     }
 
     @Koan
     void string_contains() {
         String str = "I AM a number ONE!";
 
-        assertThat(str.contains("one")).isEqualTo(__);
-        assertThat(str.contains("ONE")).isEqualTo(__);
+        assertThat(str.contains("one")).isEqualTo(false);
+        assertThat(str.contains("ONE")).isEqualTo(true);
     }
 
     @Koan
     void string_replace() {
         String str = "I am a number ONE!";
 
-        assertThat(str.replace("ONE", "TWO")).isEqualTo(__);
-        assertThat(str.replace("I am", "She is")).isEqualTo(__);
+        assertThat(str.replace("ONE", "TWO")).isEqualTo("I am a number TWO!");
+        assertThat(str.replace("I am", "She is")).isEqualTo("She is a number ONE!");
     }
 
     @Koan
