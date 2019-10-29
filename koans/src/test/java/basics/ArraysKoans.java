@@ -71,13 +71,13 @@ class ArraysKoans {
 
     @Koan
     void array_length_can_be_checked() {
-        assertThat(new int[1].length).isEqualTo(__);
+        assertThat(new int[1].length).isEqualTo(1);
     }
 
     @Koan
     void use_the_arrays_to_string_helper_method_to_print_the_content_of_an_array() {
         final int[] oddNumbers = {1, 3, 5, 7, 9};
 
-        assertThat(Arrays.toString(oddNumbers)).isEqualTo(__);
+        assertThat(Arrays.toString(oddNumbers)).isEqualTo("13579");
     }
 }
