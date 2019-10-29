@@ -75,7 +75,7 @@ class ArraysKoans {
 
     @Koan
     void array_length_can_be_checked() {
-        assertThat(new int[1].length).isEqualTo(__);
+        assertThat(new int[1].length).isEqualTo(1);
     }
 
     @Koan
