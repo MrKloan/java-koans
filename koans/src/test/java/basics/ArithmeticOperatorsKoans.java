@@ -39,10 +39,10 @@ class ArithmeticOperatorsKoans {
     @Koan
     void increment_variable() {
         int i = 1;
-        assertThat(++i).isEqualTo(__);
-        assertThat(i).isEqualTo(__);
-        assertThat(i++).isEqualTo(__);
-        assertThat(i).isEqualTo(__);
+        assertThat(++i).isEqualTo(2);
+        assertThat(i).isEqualTo(2);
+        assertThat(i++).isEqualTo(2);
+        assertThat(i).isEqualTo(3);
     }
 
     @Koan
