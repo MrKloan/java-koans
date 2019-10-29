@@ -38,7 +38,7 @@ class BitwiseOperatorsKoans {
             i = i + 1;
         }
 
-        assertThat(i).isEqualTo(__);
+        assertThat(i).isEqualTo(2);
     }
 
     @Koan
