@@ -27,7 +27,8 @@ class StreamsKoans extends OnlineStore {
         void find_rich_customers() {
             List<Customer> customerList = mall.getCustomers();
 
-            Predicate<Customer> richCustomerCondition = null;
+            Predicate<Customer> richCustomerCondition = customer -> customer.getBudget() > 10000;
+
             Stream<Customer> richCustomerStream = null;
 
             assertThat(isLambda(richCustomerCondition)).isTrue();
