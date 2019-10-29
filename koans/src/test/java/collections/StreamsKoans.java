@@ -66,7 +66,8 @@ class StreamsKoans extends OnlineStore {
         void sort_by_age() {
             List<Customer> customerList = mall.getCustomers();
 
-            Stream<Integer> sortedAgeStream = null;
+            Stream<Customer> customerStream = customerList.stream();
+            Stream<Integer> sortedAgeStream = customerStream.map(Customer::getAge).sorted();
 
             List<Integer> sortedAgeList = sortedAgeStream.collect(Collectors.toList());
             assertThat(sortedAgeList).contains(21, 22, 22, 26, 27, 28, 32, 35, 36, 38);
