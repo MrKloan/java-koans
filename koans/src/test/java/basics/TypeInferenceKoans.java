@@ -14,7 +14,7 @@ class TypeInferenceKoans {
     @Koan
     void var_allows_local_variable_type_inference() {
         var status = "SUCCESS";
-        assertThat(status instanceof String).isEqualTo(__);
+        assertThat(status instanceof String).isEqualTo(true);
     }
 
     @Koan

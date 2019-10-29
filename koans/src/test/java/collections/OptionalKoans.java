@@ -18,7 +18,7 @@ class OptionalKoans {
         try {
             lastName.toUpperCase();
         } catch (final Exception e) {
-            assertThat(e instanceof NullPointerException).isEqualTo(__);
+            assertThat(e instanceof NullPointerException).isEqualTo(true);
         }
     }
 
@@ -26,16 +26,16 @@ class OptionalKoans {
     void an_optional_is_a_wrapper_of_any_type_allowing_safe_null_manipulation() {
         Optional<String> lastName = Optional.ofNullable(null);
 
-        assertThat(lastName.isPresent()).isEqualTo(__);
-        assertThat(lastName.isEmpty()).isEqualTo(__);
+        assertThat(lastName.isPresent()).isEqualTo(false);
+        assertThat(lastName.isEmpty()).isEqualTo(true);
     }
 
     @Koan
     void an_optional_can_be_declared_empty() {
         Optional<String> lastName = Optional.empty();
 
-        assertThat(lastName.isPresent()).isEqualTo(__);
-        assertThat(lastName.isEmpty()).isEqualTo(__);
+        assertThat(lastName.isPresent()).isEqualTo(false);
+        assertThat(lastName.isEmpty()).isEqualTo(true);
     }
 
     @Koan

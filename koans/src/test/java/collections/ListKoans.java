@@ -23,17 +23,17 @@ class ListKoans {
             items.add(new Item("Table", 50));
             items.add(new Item("Desk", 150));
 
-            assertThat(items.size()).isEqualTo(__);
-            assertThat(items.get(0).getName()).isEqualTo(__);
-            assertThat(items.get(1).getName()).isEqualTo(__);
-            assertThat(items.get(2).getName()).isEqualTo(__);
+            assertThat(items.size()).isEqualTo(3);
+            assertThat(items.get(0).getName()).isEqualTo("Chair");
+            assertThat(items.get(1).getName()).isEqualTo("Table");
+            assertThat(items.get(2).getName()).isEqualTo("Desk");
         }
 
         @Koan
         void array_list_can_be_empty() {
             List<Item> items = new ArrayList<>();
 
-            assertThat(items.isEmpty()).isEqualTo(__);
+            assertThat(items.isEmpty()).isEqualTo(true);
         }
 
         @Koan

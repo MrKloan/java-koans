@@ -13,7 +13,7 @@ class StringsKoans {
 
     @Koan
     void strings_are_implicit_objects() {
-        assertThat("just a plain ole string".getClass()).isEqualTo(__);
+        assertThat("just a plain ole string".getClass()).isEqualTo(String.class);
     }
 
     @Koan
@@ -21,7 +21,7 @@ class StringsKoans {
         String string = new String();
         String empty = "";
 
-        assertThat(string.equals(empty)).isEqualTo(__);
+        assertThat(string.equals(empty)).isEqualTo(true);
     }
 
     @Koan
@@ -29,7 +29,7 @@ class StringsKoans {
         String stringInstance = "zero";
         String stringReference = new String(stringInstance);
 
-        assertThat(stringInstance.equals(stringReference)).isEqualTo(__);
+        assertThat(stringInstance.equals(stringReference)).isEqualTo(true);
     }
 
     @Koan
@@ -37,33 +37,33 @@ class StringsKoans {
         String stringInstance = "zero";
         String stringReference = new String(stringInstance);
 
-        assertThat(stringInstance == stringReference).isEqualTo(__);
+        assertThat(stringInstance == stringReference).isEqualTo(false);
     }
 
     @Koan
     void string_is_empty() {
-        assertThat("".isEmpty()).isEqualTo(__);
-        assertThat("one".isEmpty()).isEqualTo(__);
-        assertThat(new String().isEmpty()).isEqualTo(__);
-        assertThat(new String("").isEmpty()).isEqualTo(__);
-        assertThat(new String("one").isEmpty()).isEqualTo(__);
+        assertThat("".isEmpty()).isEqualTo(true);
+        assertThat("one".isEmpty()).isEqualTo(false);
+        assertThat(new String().isEmpty()).isEqualTo(true);
+        assertThat(new String("").isEmpty()).isEqualTo(true);
+        assertThat(new String("one").isEmpty()).isEqualTo(false);
     }
 
     @Koan
     void string_length() {
-        assertThat("".length()).isEqualTo(__);
-        assertThat("one".length()).isEqualTo(__);
-        assertThat("the number is one".length()).isEqualTo(__);
+        assertThat("".length()).isEqualTo(0);
+        assertThat("one".length()).isEqualTo(3);
+        assertThat("the number is one".length()).isEqualTo(17);
     }
 
     @Koan
     void string_trim() {
-        assertThat("".trim()).isEqualTo(__);
+        assertThat("".trim()).isEqualTo("");
         assertThat("one".trim()).isEqualTo("one");
-        assertThat(" one more time".trim()).isEqualTo(__);
-        assertThat(" one more time         ".trim()).isEqualTo(__);
-        assertThat(" and again\t".trim()).isEqualTo(__);
-        assertThat("\t\t\twhat about now?\t".trim()).isEqualTo(__);
+        assertThat(" one more time".trim()).isEqualTo("one more time");
+        assertThat(" one more time         ".trim()).isEqualTo("one more time");
+        assertThat(" and again\t".trim()).isEqualTo("and again");
+        assertThat("\t\t\twhat about now?\t".trim()).isEqualTo("what about now?");
     }
 
     @Koan
@@ -72,9 +72,9 @@ class StringsKoans {
         String space = " ";
         String two = "two";
 
-        assertThat(one + space + two).isEqualTo(__);
-        assertThat(space + one + two).isEqualTo(__);
-        assertThat(two + space + one).isEqualTo(__);
+        assertThat(one + space + two).isEqualTo("one two");
+        assertThat(space + one + two).isEqualTo(" onetwo");
+        assertThat(two + space + one).isEqualTo("two one");
     }
 
     @Koan
