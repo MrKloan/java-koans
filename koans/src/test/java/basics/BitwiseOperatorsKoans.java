@@ -60,7 +60,7 @@ class BitwiseOperatorsKoans {
 
         rightShift = rightShift >> 1;
 
-        assertThat(rightShift).isEqualTo(__);
+        assertThat(rightShift).isEqualTo(4);
     }
 
     @Koan
