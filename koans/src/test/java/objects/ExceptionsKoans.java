@@ -25,7 +25,7 @@ class ExceptionsKoans {
             result = "catch";
         }
 
-        assertThat(result).isEqualTo(__);
+        assertThat(result).isEqualTo("catch");
     }
 
     @Koan
@@ -41,7 +41,7 @@ class ExceptionsKoans {
             result += ", finally";
         }
 
-        assertThat(result).isEqualTo(__);
+        assertThat(result).isEqualTo("catch, finally");
     }
 
     @Koan
@@ -54,7 +54,7 @@ class ExceptionsKoans {
             result += ", finally";
         }
 
-        assertThat(result).isEqualTo(__);
+        assertThat(result).isEqualTo("try, finally");
     }
 
     private void doMoreStuff(StringBuilder stringBuilder) {
