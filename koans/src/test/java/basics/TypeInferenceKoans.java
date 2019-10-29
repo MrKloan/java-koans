@@ -14,15 +14,15 @@ class TypeInferenceKoans {
     @Koan
     void var_allows_local_variable_type_inference() {
         var status = "SUCCESS";
-        assertThat(status instanceof String).isEqualTo(__);
+        assertThat(status instanceof String).isEqualTo(true);
     }
 
     @Koan
     void var_can_infer_the_generic_type_using_the_affected_value() {
         var statuses = List.of("SUCCESS", "FAILURE");
 
-        assertThat(statuses instanceof List).isEqualTo(__);
-        assertThat(statuses.get(0) instanceof String).isEqualTo(__);
+        assertThat(statuses instanceof List).isEqualTo(true);
+        assertThat(statuses.get(0) instanceof String).isEqualTo(true);
     }
 
     @Koan
@@ -30,27 +30,26 @@ class TypeInferenceKoans {
         var strings = new ArrayList<>();
         strings.add("SUCCESS");
         strings.add(42); // Whut?
-
-        assertThat(strings.get(0) instanceof String).isEqualTo(__);
-        assertThat(strings.get(1) instanceof String).isEqualTo(__);
+        assertThat(strings.get(0) instanceof String).isEqualTo(true);
+        assertThat(strings.get(1) instanceof String).isEqualTo(false);
     }
 
     @Koan
     void the_generic_type_can_be_inferred_using_the_diamond_operator() {
         var strings = new ArrayList<String>();
         strings.add("SUCCESS");
-        // strings.add(42); // Try to uncomment this line. Does it compile? Why?
+         //strings.add(42); // Try to uncomment this line. Does it compile? Why? Because we say that strings is an ArrayList that only accept String values
 
-        assertThat(strings.get(0) instanceof String).isEqualTo(__);
+        //assertThat(strings.get(0) instanceof String).isEqualTo();
     }
 
     @Koan
     void a_var_local_variable_is_mutable() {
         var x = 3;
-        assertThat(x).isEqualTo(__);
+        assertThat(x).isEqualTo(3);
 
         x = 5;
-        assertThat(x).isEqualTo(__);
+        assertThat(x).isEqualTo(5);
     }
 
     @Koan
