@@ -111,6 +111,6 @@ class CastingKoans {
     void complicated_cast() {
         Grandparent parent = new Parent();
 
-        assertThat("TPS reports don't even have a cover letter!").isEqualTo(__);
+        assertThat("TPS reports don't even have a cover letter!").isEqualTo((String)"TPS reports don't even have a cover letter!");
     }
 }

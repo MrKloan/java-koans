@@ -21,7 +21,7 @@ class StringsKoans {
         String string = new String();
         String empty = "";
 
-        assertThat(string.equals(empty)).isEqualTo(__);
+        assertThat(string.equals(empty)).isEqualTo(true);
     }
 
     @Koan
@@ -29,7 +29,7 @@ class StringsKoans {
         String stringInstance = "zero";
         String stringReference = new String(stringInstance);
 
-        assertThat(stringInstance.equals(stringReference)).isEqualTo(__);
+        assertThat(stringInstance.equals(stringReference)).isEqualTo(true);
     }
 
     @Koan
@@ -37,13 +37,13 @@ class StringsKoans {
         String stringInstance = "zero";
         String stringReference = new String(stringInstance);
 
-        assertThat(stringInstance == stringReference).isEqualTo(__);
+        assertThat(stringInstance == stringReference).isEqualTo(false);
     }
 
     @Koan
     void string_is_empty() {
-        assertThat("".isEmpty()).isEqualTo(__);
-        assertThat("one".isEmpty()).isEqualTo(__);
+        assertThat("".isEmpty()).isEqualTo(true);
+        assertThat("one".isEmpty()).isEqualTo(false);
         assertThat(new String().isEmpty()).isEqualTo(__);
         assertThat(new String("").isEmpty()).isEqualTo(__);
         assertThat(new String("one").isEmpty()).isEqualTo(__);

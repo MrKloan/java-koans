@@ -13,16 +13,16 @@ class EqualityKoans {
         Object object = new Object();
         Object sameObject = object;
 
-        assertThat(object == sameObject).isEqualTo(__);
-        assertThat(object == new Object()).isEqualTo(__);
+        assertThat(object == sameObject).isEqualTo(true);
+        assertThat(object == new Object()).isEqualTo(false);
     }
 
     @Koan
     void default_equals_method_tests_if_two_objects_are_the_same() {
         Object object = new Object();
 
-        assertThat(object.equals(object)).isEqualTo(__);
-        assertThat(object.equals(new Object())).isEqualTo(__);
+        assertThat(object.equals(object)).isEqualTo(true);
+        assertThat(object.equals(new Object())).isEqualTo(false);
     }
 
     @Koan
