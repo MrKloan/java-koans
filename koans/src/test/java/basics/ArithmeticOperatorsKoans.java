@@ -10,7 +10,7 @@ class ArithmeticOperatorsKoans {
 
     @Koan
     void simple_operations() {
-        assertThat(1).isEqualTo(2);
+        assertThat(1).isEqualTo(1);
         assertThat(1 + 1).isEqualTo(2);
         assertThat(2 + 3 * 4).isEqualTo(14);
         assertThat((2 + 3) * 4).isEqualTo(20);
@@ -22,8 +22,8 @@ class ArithmeticOperatorsKoans {
 
     @Koan
     void more_operations() {
-        assertThat(1 / 2).isEqualTo(0.5);
-        assertThat(3 / 2).isEqualTo(1.5);
+        assertThat(1 / 2).isEqualTo(0);
+        assertThat(3 / 2).isEqualTo(1);
         assertThat(1 % 2).isEqualTo(1);
         assertThat(3 % 2).isEqualTo(1);
     }
@@ -40,10 +40,10 @@ class ArithmeticOperatorsKoans {
     @Koan
     void increment_variable() {
         int i = 1;
-        assertThat(++i).isEqualTo(1);
-        assertThat(i).isEqualTo(1);
-        assertThat(i++).isEqualTo(1);
+        assertThat(++i).isEqualTo(2);
         assertThat(i).isEqualTo(2);
+        assertThat(i++).isEqualTo(2);
+        assertThat(i).isEqualTo(3);
     }
 
     @Koan
