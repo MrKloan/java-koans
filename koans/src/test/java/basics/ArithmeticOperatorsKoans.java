@@ -21,10 +21,10 @@ class ArithmeticOperatorsKoans {
 
     @Koan
     void more_operations() {
-        assertThat(1 / 2).isEqualTo(__);
-        assertThat(3 / 2).isEqualTo(__);
-        assertThat(1 % 2).isEqualTo(__);
-        assertThat(3 % 2).isEqualTo(__);
+        assertThat(1 / 2).isEqualTo(0);
+        assertThat(3 / 2).isEqualTo(1);
+        assertThat(1 % 2).isEqualTo(1);
+        assertThat(3 % 2).isEqualTo(1);
     }
 
     @Koan
