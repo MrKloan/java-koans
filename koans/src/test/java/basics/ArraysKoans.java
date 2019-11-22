@@ -12,7 +12,8 @@ class ArraysKoans {
 
     @Koan
     void arrays_do_not_consider_elements_when_evaluating_equality() {
-        assertThat(new int[]{1}.equals(new int[]{1})).isEqualTo(__);
+        assertThat(new int[]{1}.equals(new int[]{1})).isEqualTo(1);
+        boolean clause;
     }
 
     @Koan
